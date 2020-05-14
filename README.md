@@ -1,0 +1,42 @@
+```
+libs/
+    @micro/logger
+    @micro/kernel
+modules/
+    countries
+        domain
+            entities
+            exceptions
+            aggregation-roots
+            value-objects
+            events
+            repositories-interfaces
+        infraestructure
+            repositories
+            logger
+            dtos *
+            mappers
+        application
+            commands
+            queries
+            handlers
+            uses-cases
+        interfaces
+            rest
+                controllers
+                routers
+                server.js
+            graphl
+                queries
+                mutations
+                server.js
+            console
+                commands
+                cli.js
+        app
+            app.js
+    pokemon
+    customers
+    products
+    orders
+```

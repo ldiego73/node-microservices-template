@@ -1,0 +1,17 @@
+# Directories
+/src
+/test
+
+# Others
+.babelrc
+.editorconfig
+.eslintignore
+.eslintrc.yml
+.gitattributes
+.gitignore
+.npmignore
+.prettierrc
+babel.config.js
+tsconfig.json
+tsconfig.browser.json
+webpack.config.js

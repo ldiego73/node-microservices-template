@@ -1,0 +1,14 @@
+{
+  "name": "node-microservices-template",
+  "version": "1.0.0",
+  "description": "Node Microservices Template using Driven Design Domain (DDD), CQRS and Event Sourcing",
+  "repository": "https://github.com/ldiego73/node-microservices-template",
+  "author": {
+    "name": "Luis Diego",
+    "email": "lfdiego7@gmail.com",
+    "url": "http://github.com/ldiego73"
+  },
+  "license": "MIT",
+  "private": true,
+  "workspaces": ["libs/*", "modules/*"]
+}

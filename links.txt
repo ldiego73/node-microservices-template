@@ -1,0 +1,13 @@
+https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/#application-core-organisation
+https://github.com/stemmlerjs/white-label/tree/master/src
+https://khalilstemmler.com/articles/enterprise-typescript-nodejs/application-layer-use-cases/
+https://github.com/sckv/almeriajs-ddd/
+https://github.com/kgrzybek/modular-monolith-with-ddd/tree/master/src
+https://github.com/ardalis/ddd-guestbook/tree/master/src/CleanArchitecture.Infrastructure
+https://github.com/EduardoPires/EquinoxProject/tree/master/src
+https://github.com/zkavtaskin/Domain-Driven-Design-Example
+https://github.com/talyssonoc/node-api-boilerplate/tree/master/src
+https://basarat.gitbook.io/typescript/styleguide#filename
+https://github.com/dotnet-architecture/eShopOnContainers
+https://github.com/sckv/almeriajs-ddd
+https://github.com/joshuaalpuerto/node-ddd-boilerplate

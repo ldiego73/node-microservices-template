@@ -1,0 +1,39 @@
+{
+  "name": "@micro/logger",
+  "version": "1.0.0",
+  "description": "A simple logging library that encapsulates console.log",
+  "author": {
+    "name": "Luis Diego",
+    "email": "lfdiego7@gmail.com",
+    "url": "http://github.com/ldiego73"
+  },
+  "license": "MIT",
+  "main": "lib/logger.js",
+  "browser": "lib/browser/logger.js",
+  "unpkg": "lib/browser/logger.js",
+  "types": "lib/logger.d.ts",
+  "scripts": {
+    "clean": "rimraf reports lib",
+    "prebuild": "yarn clean",
+    "build:node": "webpack --config config/webpack.config.js",
+    "build:browser": "webpack --config config/webpack.browser.config.js",
+    "build": "yarn build:node && yarn build:browser",
+    "test": "jest --passWithNoTests"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.2.1",
+    "@types/node": "^13.13.5",
+    "jest": "^26.0.1",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^25.5.0",
+    "ts-loader": "^7.0.2",
+    "typescript": "^3.8.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "dateformat": "^3.0.3"
+  }
+}
