@@ -10,5 +10,7 @@
   },
   "license": "MIT",
   "private": true,
-  "workspaces": ["libs/*", "modules/*"]
+  "devDependencies": {
+    "lerna": "^3.21.0"
+  }
 }

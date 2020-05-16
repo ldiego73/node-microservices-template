@@ -1,7 +1,7 @@
 {
-  "name": "@micro/countries",
+  "name": "@micro/country-core",
   "version": "1.0.0",
-  "description": "Microservices countries using DDD",
+  "description": "Country Core Library",
   "author": {
     "name": "Luis Diego",
     "email": "lfdiego7@gmail.com",
