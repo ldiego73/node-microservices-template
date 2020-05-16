@@ -18,20 +18,6 @@ const toObject = paths => {
   return ret;
 };
 const entries = toObject(glob.sync('./src/**/*.ts*'));
-const aliases = Object.keys(tsconfig.compilerOptions.paths).reduce(
-  (aliases, aliasName) => {
-    const name = aliasName.replace('/*', '');
-    const basePath = tsconfig.compilerOptions.paths[aliasName][0].replace(
-      '*',
-      ''
-    );
-
-    aliases[name] = path.resolve(__dirname, `src/${basePath}`);
-
-    return aliases;
-  },
-  {}
-);
 
 module.exports = {
   target: 'node',
@@ -48,15 +34,8 @@ module.exports = {
   },
   resolve: {
     extensions: ['.ts', '.js'],
-    alias: aliases,
   },
-  externals: [
-    nodeExternals(),
-    '@micro/kernel',
-    '@micro/logger',
-    'sequelize',
-    'sqlite3',
-  ],
+  externals: [nodeExternals(), 'dotenv'],
   output: {
     path: path.resolve(__dirname, './lib'),
     filename: '[name].js',

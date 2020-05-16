@@ -1,5 +1,5 @@
 import { Sequelize, Dialect } from 'sequelize';
-import { DB, PRODUCTION } from '@config/index';
+import { DB, PRODUCTION } from '@micro/country-config';
 import { Logger } from '@micro/logger';
 
 const l = Logger.create('database');

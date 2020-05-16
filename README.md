@@ -24,18 +24,19 @@ This project is structured by libraries and modules
 ├── modules
 │   ├── countries
 │   │   ├── app
-│   │   ├── application
-│   │   │   ├── dtos
-│   │   │   ├── transforms
-│   │   │   └── use-cases
 │   │   ├── config
-│   │   ├── domain
-│   │   │   └── errors
-│   │   ├── infraestructure
-│   │   │   ├── database
-│   │   │   ├── mappers
-│   │   │   └── repositories
-│   │   └── interfaces
+│   │   ├── core
+│   │   │   ├── application
+│   │   │   │   ├── dtos
+│   │   │   │   ├── transforms
+│   │   │   │   └── use-cases
+│   │   │   ├── domain
+│   │   │   │   └── errors
+│   │   │   ├── infraestructure
+│   │   │   │   ├── database
+│   │   │   │   ├── mappers
+│   │   │   │   └── repositories
+│   │   ├── interfaces
 │   │   │   ├── console
 │   │   │   │   ├── commands
 │   │   │   │   └── app.js
@@ -49,21 +50,19 @@ This project is structured by libraries and modules
 │   │   │   │   └── server.js
 │   ├── customers
 │   │   ├── app
-│   │   ├── application
-│   │   │   ├── dtos
-│   │   │   ├── transforms
-│   │   │   ├── commands
-│   │   │   ├── handlers
-│   │   │   └── queries
 │   │   ├── config
-│   │   ├── domain
-│   │   │   ├── errors
-│   │   │   └── events
-│   │   ├── infraestructure
-│   │   │   ├── database
-│   │   │   ├── mappers
-│   │   │   └── repositories
-│   │   └── interfaces
+│   │   ├── core
+│   │   │   ├── application
+│   │   │   │   ├── dtos
+│   │   │   │   ├── transforms
+│   │   │   │   └── use-cases
+│   │   │   ├── domain
+│   │   │   │   └── errors
+│   │   │   ├── infraestructure
+│   │   │   │   ├── database
+│   │   │   │   ├── mappers
+│   │   │   │   └── repositories
+│   │   ├── interfaces
 │   │   │   ├── console
 │   │   │   │   ├── commands
 │   │   │   │   └── app.js
@@ -77,21 +76,19 @@ This project is structured by libraries and modules
 │   │   │   │   └── server.js
 │   ├── orders
 │   │   ├── app
-│   │   ├── application
-│   │   │   ├── dtos
-│   │   │   ├── transforms
-│   │   │   ├── commands
-│   │   │   ├── handlers
-│   │   │   └── queries
 │   │   ├── config
-│   │   ├── domain
-│   │   │   ├── errors
-│   │   │   └── events
-│   │   ├── infraestructure
-│   │   │   ├── database
-│   │   │   ├── mappers
-│   │   │   └── repositories
-│   │   └── interfaces
+│   │   ├── core
+│   │   │   ├── application
+│   │   │   │   ├── dtos
+│   │   │   │   ├── transforms
+│   │   │   │   └── use-cases
+│   │   │   ├── domain
+│   │   │   │   └── errors
+│   │   │   ├── infraestructure
+│   │   │   │   ├── database
+│   │   │   │   ├── mappers
+│   │   │   │   └── repositories
+│   │   ├── interfaces
 │   │   │   ├── console
 │   │   │   │   ├── commands
 │   │   │   │   └── app.js
@@ -105,18 +102,19 @@ This project is structured by libraries and modules
 │   │   │   │   └── server.js
 │   ├── pokemon
 │   │   ├── app
-│   │   ├── application
-│   │   │   ├── dtos
-│   │   │   ├── transforms
-│   │   │   └── use-cases
 │   │   ├── config
-│   │   ├── domain
-│   │   │   └── errors
-│   │   ├── infraestructure
-│   │   │   ├── database
-│   │   │   ├── mappers
-│   │   │   └── repositories
-│   │   └── interfaces
+│   │   ├── core
+│   │   │   ├── application
+│   │   │   │   ├── dtos
+│   │   │   │   ├── transforms
+│   │   │   │   └── use-cases
+│   │   │   ├── domain
+│   │   │   │   └── errors
+│   │   │   ├── infraestructure
+│   │   │   │   ├── database
+│   │   │   │   ├── mappers
+│   │   │   │   └── repositories
+│   │   ├── interfaces
 │   │   │   ├── console
 │   │   │   │   ├── commands
 │   │   │   │   └── app.js
@@ -130,21 +128,19 @@ This project is structured by libraries and modules
 │   │   │   │   └── server.js
 │   └── products
 │   │   ├── app
-│   │   ├── application
-│   │   │   ├── dtos
-│   │   │   ├── transforms
-│   │   │   ├── commands
-│   │   │   ├── handlers
-│   │   │   └── queries
 │   │   ├── config
-│   │   ├── domain
-│   │   │   ├── errors
-│   │   │   └── events
-│   │   ├── infraestructure
-│   │   │   ├── database
-│   │   │   ├── mappers
-│   │   │   └── repositories
-│   │   └── interfaces
+│   │   ├── core
+│   │   │   ├── application
+│   │   │   │   ├── dtos
+│   │   │   │   ├── transforms
+│   │   │   │   └── use-cases
+│   │   │   ├── domain
+│   │   │   │   └── errors
+│   │   │   ├── infraestructure
+│   │   │   │   ├── database
+│   │   │   │   ├── mappers
+│   │   │   │   └── repositories
+│   │   ├── interfaces
 │   │   │   ├── console
 │   │   │   │   ├── commands
 │   │   │   │   └── app.js

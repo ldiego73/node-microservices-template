@@ -1,7 +1,7 @@
 {
-  "name": "@micro/country-core",
+  "name": "@micro/country-config",
   "version": "1.0.0",
-  "description": "Country Core Library",
+  "description": "Country Config Library",
   "author": {
     "name": "Luis Diego",
     "email": "lfdiego7@gmail.com",
@@ -19,17 +19,10 @@
     "build": "webpack"
   },
   "dependencies": {
-    "@micro/country-config": "^1.0.0",
-    "@micro/kernel": "^1.0.0",
-    "@micro/logger": "^1.0.0",
-    "@micro/utils": "^1.0.0",
-    "sequelize": "^5.21.8",
-    "sqlite3": "^4.2.0"
+    "dotenv": "^8.2.0"
   },
   "devDependencies": {
-    "@types/bluebird": "^3.5.30",
     "@types/node": "^14.0.1",
-    "@types/validator": "^13.0.0",
     "glob": "^7.1.6",
     "rimraf": "^3.0.2",
     "ts-loader": "^7.0.4",
