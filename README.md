@@ -10,6 +10,8 @@ Architecture diagrams
 
 ![Concentric Layers](images/architecture-2.png)
 
+![Dependency Flow](images/architecture-3.png)
+
 ## Project structure
 
 This project is structured by libraries and modules

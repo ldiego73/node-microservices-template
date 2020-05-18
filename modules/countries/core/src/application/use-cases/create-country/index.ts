@@ -1,6 +1,9 @@
-export * from './create-country.error';
-
+import { CountryRepositoryImpl } from '@infraestructure/repositories/index';
 import { CreateCountryUseCase } from './create-country.use-case';
-const createCountryUseCase = new CreateCountryUseCase();
 
+const repository = new CountryRepositoryImpl();
+const createCountryUseCase = new CreateCountryUseCase(repository);
+
+export * from './create-country.error';
+export * from './create-country.use-case';
 export { createCountryUseCase };

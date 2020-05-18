@@ -2,7 +2,6 @@ import { UseCase, UseCaseUnexpectedError } from '@micro/kernel';
 import { Either, Result } from '@micro/kernel';
 import { CountryRepository, Iso, Country } from '@domain/index';
 import { IsoInvalidError, CountryInvalidError } from '@domain/errors';
-import { CountryRepositoryImpl } from '@infraestructure/repositories/index';
 import { CountryDto } from '@application/dtos';
 import { CountryNotExistsError } from './update-country.error';
 
@@ -13,10 +12,10 @@ type Response<T> = Either<
 
 export class UpdateCountryUseCase
   implements UseCase<CountryDto, Response<any>> {
-  private countryRepository: CountryRepository;
+  private repository: CountryRepository;
 
-  constructor() {
-    this.countryRepository = new CountryRepositoryImpl();
+  constructor(repository: CountryRepository) {
+    this.repository = repository;
   }
 
   async execute(request: CountryDto): Promise<Response<any>> {
@@ -40,14 +39,14 @@ export class UpdateCountryUseCase
     }
 
     const country: Country = countryOrError.value;
-    const countryAlreadyExists = await this.countryRepository.exists(iso.value);
+    const countryAlreadyExists = await this.repository.exists(iso.value);
 
     if (!countryAlreadyExists) {
       return Result.fail(CountryNotExistsError.create(iso.value, null));
     }
 
     try {
-      await this.countryRepository.update(country);
+      await this.repository.update(country);
     } catch (err) {
       return Result.fail(UseCaseUnexpectedError.create(err));
     }

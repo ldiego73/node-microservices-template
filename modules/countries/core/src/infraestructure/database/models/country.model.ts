@@ -19,6 +19,7 @@ CountryModel.init(
     id: {
       type: DataTypes.UUIDV4,
       allowNull: false,
+      primaryKey: true,
     },
     name: {
       type: DataTypes.STRING,
