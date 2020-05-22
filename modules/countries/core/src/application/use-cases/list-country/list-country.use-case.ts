@@ -20,7 +20,7 @@ export class ListCountryUseCase
   async execute(): Promise<Response<CountryDto[]>> {
     try {
       const countries = await this.repository.findAll();
-      return Result.ok(this.transform.toColletion!(countries));
+      return Result.ok(this.transform.toCollection!(countries));
     } catch (err) {
       return Result.fail(UseCaseUnexpectedError.create(err));
     }

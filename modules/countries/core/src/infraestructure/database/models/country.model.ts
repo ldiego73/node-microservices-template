@@ -1,6 +1,8 @@
 import { Model, DataTypes } from 'sequelize';
 import { db } from '@infraestructure/database/index';
+import { Logger } from '@micro/logger';
 
+const l = Logger.create('CountryModel');
 const TABLE_NAME = 'countries';
 
 export class CountryModel extends Model {
@@ -43,3 +45,5 @@ CountryModel.init(
     tableName: TABLE_NAME,
   }
 );
+
+CountryModel.sync().then(() => l.info('Table created!!!'));
