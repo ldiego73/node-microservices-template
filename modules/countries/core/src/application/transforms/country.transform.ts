@@ -1,4 +1,4 @@
-import { Transform } from '@micro/kernel/lib/application';
+import { Transform } from '@micro/kernel/lib/application/transform';
 import { Country } from '@domain/index';
 import { CountryDto } from '@application/dtos/index';
 

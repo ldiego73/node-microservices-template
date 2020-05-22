@@ -2,17 +2,19 @@ const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 const glob = require('glob');
 
-const toObject = paths => {
-  var ret = {};
+const findFiles = dir => {
+  const paths = glob.sync(`${dir}/**/*.ts`);
+  const name = path => path.replace(`${dir}/`, '').replace('.ts', '');
+  const ret = {};
 
   paths.forEach(path => {
-    ret[path.split('/').slice(-1)[0].replace('.ts', '')] = path;
+    ret[name(path)] = path;
   });
 
   return ret;
 };
 
-const entries = toObject(glob.sync('./src/**/*.ts*'));
+const entries = findFiles('./src');
 
 module.exports = {
   target: 'node',

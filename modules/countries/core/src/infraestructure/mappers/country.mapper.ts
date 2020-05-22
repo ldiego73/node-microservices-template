@@ -1,4 +1,4 @@
-import { Mapper } from '@micro/kernel/lib/infraestructure';
+import { Mapper } from '@micro/kernel/lib/infraestructure/mapper';
 import { Country, Iso } from '@domain/index';
 import { UniqueEntityId } from '@micro/kernel';
 

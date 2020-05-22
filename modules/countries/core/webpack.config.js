@@ -3,21 +3,20 @@ const nodeExternals = require('webpack-node-externals');
 const glob = require('glob');
 const tsconfig = require('./tsconfig.json');
 
-const toObject = paths => {
-  var ret = {};
+const findFiles = dir => {
+  const paths = glob.sync(`${dir}/**/*.ts`);
+  const name = path => path.replace(`${dir}/`, '').replace('.ts', '');
+  const ret = {};
 
   paths.forEach(path => {
-    ret[
-      path
-        .split('/')
-        .slice(-1)[0]
-        .replace('.ts', '')
-    ] = path;
+    ret[name(path)] = path;
   });
 
   return ret;
 };
-const entries = toObject(glob.sync('./src/**/*.ts*'));
+
+const entries = findFiles('./src');
+
 const aliases = Object.keys(tsconfig.compilerOptions.paths).reduce(
   (aliases, aliasName) => {
     const name = aliasName.replace('/*', '');
@@ -36,7 +35,7 @@ const aliases = Object.keys(tsconfig.compilerOptions.paths).reduce(
 module.exports = {
   target: 'node',
   entry: entries,
-  mode: 'development',
+  mode: 'production',
   module: {
     rules: [
       {

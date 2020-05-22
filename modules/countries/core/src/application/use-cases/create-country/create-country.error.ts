@@ -1,5 +1,5 @@
-import { Failure } from '@micro/kernel';
-import { UseCaseError } from '@micro/kernel';
+import { Failure } from '@micro/kernel/lib/result';
+import { UseCaseError } from '@micro/kernel/lib/application/use-case.error';
 
 export class CountryAlreadyExistsError extends Failure<UseCaseError> {
   public constructor(iso: string, error: any) {

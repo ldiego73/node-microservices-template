@@ -1,4 +1,5 @@
-import { ValueObject, Result, Either } from '@micro/kernel';
+import { Result, Either } from '@micro/kernel/lib/result';
+import { ValueObject } from '@micro/kernel/lib/domain/value-object';
 import * as validator from '@micro/utils';
 import { IsoInvalidError } from './errors';
 

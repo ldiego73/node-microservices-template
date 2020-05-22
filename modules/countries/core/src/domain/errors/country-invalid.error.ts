@@ -1,4 +1,5 @@
-import { DomainError, Failure } from '@micro/kernel';
+import { Failure } from '@micro/kernel/lib/result';
+import { DomainError } from '@micro/kernel/lib/domain/domain.error';
 
 export class CountryInvalidError extends Failure<DomainError> {
   public constructor(field: string) {

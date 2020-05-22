@@ -1,5 +1,5 @@
-import { UseCase, UseCaseUnexpectedError } from '@micro/kernel';
-import { Either, Result } from '@micro/kernel';
+import { UseCase, UseCaseUnexpectedError } from '@micro/kernel/lib/application';
+import { Either, Result } from '@micro/kernel/lib/result';
 import { CountryRepository, Iso } from '@domain/index';
 import { IsoInvalidError } from '@domain/errors/index';
 import { IsoDto } from '@application/dtos/index';

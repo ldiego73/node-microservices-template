@@ -1,4 +1,5 @@
-import { Entity, UniqueEntityId, Result, Either } from '@micro/kernel';
+import { Entity, UniqueEntityId } from '@micro/kernel/lib/domain';
+import { Result, Either } from '@micro/kernel/lib/result';
 import { Schema } from '@micro/utils';
 import * as validator from '@micro/utils';
 import { Iso } from './iso';

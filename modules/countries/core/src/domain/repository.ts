@@ -1,5 +1,5 @@
 import { Country } from './country';
-import { Repository } from '@micro/kernel/lib/infraestructure';
+import { Repository } from '@micro/kernel/lib/infraestructure/repository';
 
 export interface CountryRepository extends Repository<Country> {
   findByIso(iso: string): Promise<Country>;
