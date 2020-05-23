@@ -1,10 +1,12 @@
 import { Command } from 'commander';
 import * as Commander from 'commander';
+import { Logger } from '@micro/logger';
 
 export abstract class BaseCommand {
   protected readonly name: string;
   protected readonly description: string;
   protected command: Commander.Command;
+  protected log: Logger;
 
   constructor(name: string, description: string) {
     this.name = name;
@@ -12,6 +14,8 @@ export abstract class BaseCommand {
 
     this.command = new Command(name);
     this.command.description(description);
+
+    this.log = Logger.create(this.constructor.name);
 
     this.command.action(async () => {
       await this.action();

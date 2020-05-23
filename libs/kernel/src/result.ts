@@ -8,7 +8,7 @@ export class Failure<L, A = any> {
   }
 
   get value(): A {
-    throw new Error('unable to retrieve value from failed result');
+    throw new Error('Unable to retrieve value from failed result');
   }
 
   isFailure(): this is Failure<L, A> {
