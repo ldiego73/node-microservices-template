@@ -1,4 +1,5 @@
 import { Mapper } from '@micro/kernel/lib/infraestructure/mapper';
+import { isNullOrUndefined } from '@micro/utils';
 import { CountryRepository, Country } from '@domain/index';
 import { CountryModel } from '@infraestructure/database/models';
 import { CountryMapper } from '@infraestructure/mappers';
@@ -18,6 +19,11 @@ export class CountryRepositoryImpl implements CountryRepository {
 
   async findByIso(iso: string): Promise<Country> {
     const item = await CountryModel.findOne({ where: { iso } });
+
+    if (isNullOrUndefined(item)) {
+      return {} as Country;
+    }
+
     return this.mapper.toDomain(item);
   }
 

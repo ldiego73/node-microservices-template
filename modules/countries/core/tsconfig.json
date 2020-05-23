@@ -16,7 +16,13 @@
       "@application/*": ["application/*"],
       "@interfaces/*": ["interfaces/*"],
       "@app/*": ["app/*"]
-    }
+    },
+    "plugins": [
+      {
+        "transform": "typescript-transform-paths",
+        "afterDeclarations": true
+      }
+    ]
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "test", "lib"]
