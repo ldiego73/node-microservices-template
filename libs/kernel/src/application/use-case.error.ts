@@ -1,11 +1,7 @@
 import { Failure } from '../result';
+import { DomainError } from '../domain';
 
-export interface UseCaseError {
-  message: string;
-  error: any;
-}
-
-export class UseCaseUnexpectedError extends Failure<UseCaseError> {
+export class UseCaseUnexpectedError extends Failure<DomainError> {
   public constructor(error: any) {
     super({
       message: 'An unexpected error occurred.',

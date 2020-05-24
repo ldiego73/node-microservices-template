@@ -16,7 +16,7 @@
   "scripts": {
     "clean": "rimraf lib",
     "prebuild": "yarn clean",
-    "build": "webpack",
+    "build": "webpack --silent",
     "test": "jest --passWithNoTests"
   },
   "dependencies": {
