@@ -35,7 +35,7 @@ const aliases = Object.keys(tsconfig.compilerOptions.paths).reduce(
 module.exports = {
   target: 'node',
   entry: entries,
-  mode: 'production',
+  mode: 'development',
   module: {
     rules: [
       {

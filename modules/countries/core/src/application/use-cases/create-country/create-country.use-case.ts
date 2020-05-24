@@ -22,7 +22,7 @@ export class CreateCountryUseCase
     const isoOrError = Iso.create(request.iso);
 
     if (isoOrError.isFailure()) {
-      return Result.fail(isoOrError.value);
+      return Result.fail(isoOrError.error);
     }
 
     const iso = isoOrError.value;
@@ -35,7 +35,7 @@ export class CreateCountryUseCase
     });
 
     if (countryOrError.isFailure()) {
-      return Result.fail(countryOrError.value);
+      return Result.fail(countryOrError.error);
     }
 
     const country: Country = countryOrError.value;

@@ -1,11 +1,8 @@
-import { Failure } from '@micro/kernel/lib/result';
-import { DomainError } from '@micro/kernel/lib/domain/domain.error';
+import { DomainError } from '@micro/kernel/lib/domain';
 
-export class IsoInvalidError extends Failure<DomainError> {
+export class IsoInvalidError extends DomainError {
   public constructor(iso: string) {
-    super({
-      message: `The ISO "${iso}" is not formatted correctly`,
-    });
+    super(`The ISO "${iso}" is not formatted correctly`);
   }
 
   public static create(iso: string): IsoInvalidError {

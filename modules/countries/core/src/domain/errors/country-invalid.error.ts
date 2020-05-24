@@ -1,9 +1,8 @@
-import { Failure } from '@micro/kernel/lib/result';
-import { DomainError } from '@micro/kernel/lib/domain/domain.error';
+import { DomainError } from '@micro/kernel/lib/domain';
 
-export class CountryInvalidError extends Failure<DomainError> {
+export class CountryInvalidError extends DomainError {
   public constructor(field: string) {
-    super({ message: `The Country is invalid => ${field}` });
+    super(`The Country is invalid => ${field}`);
   }
 
   public static create(field: string) {

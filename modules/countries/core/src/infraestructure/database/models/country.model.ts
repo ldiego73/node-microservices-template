@@ -46,4 +46,4 @@ CountryModel.init(
   }
 );
 
-CountryModel.sync().then(() => l.info('Table created!!!'));
+CountryModel.sync().then(() => {});

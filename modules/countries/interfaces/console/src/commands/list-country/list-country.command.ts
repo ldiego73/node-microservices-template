@@ -6,12 +6,24 @@ export class ListCountryCommand extends BaseCommand {
   private useCase: ListCountryUseCase;
 
   constructor(useCase: ListCountryUseCase) {
-    super('list', 'List a Country by ISO');
+    super('list', 'List all countries');
     this.useCase = useCase;
   }
 
   protected async action(): Promise<void> {
-    console.log('List Country!!!');
+    this.log.info('Listing countries...');
+
+    try {
+      const result = await this.useCase.execute();
+
+      if (result.isFailure()) {
+        this.log.error('Countries', result.error);
+      } else {
+        this.log.info('Countries', result.value);
+      }
+    } catch (err) {
+      this.log.error('Countries', err);
+    }
   }
 
   create(): Commander.Command {

@@ -17,7 +17,7 @@ export class DeleteCountryUseCase implements UseCase<IsoDto, Response<any>> {
     const isoOrError = Iso.create(request.iso);
 
     if (isoOrError.isFailure()) {
-      return Result.fail(isoOrError.value);
+      return Result.fail(isoOrError.error);
     }
 
     const iso = isoOrError.value;
