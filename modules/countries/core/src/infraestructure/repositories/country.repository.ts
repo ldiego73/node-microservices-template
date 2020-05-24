@@ -49,7 +49,7 @@ export class CountryRepositoryImpl implements CountryRepository {
 
   async update(country: Country): Promise<void> {
     await CountryModel.update(this.mapper.toPersistence(country), {
-      where: { id: country.id.toValue() },
+      where: { iso: country.iso },
     });
   }
 

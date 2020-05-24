@@ -1,7 +1,7 @@
 import { BaseCommand } from '../base.command';
 import * as Commander from 'commander';
 import prompts, { PromptObject, Answers } from 'prompts';
-import { CountryDto, createCountryUseCase } from '@micro/country-core';
+import { CountryDto } from '@micro/country-core';
 import { CreateCountryUseCase } from '@micro/country-core/lib/application/use-cases/create-country';
 
 export class CreateCountryCommand extends BaseCommand {
@@ -32,8 +32,8 @@ export class CreateCountryCommand extends BaseCommand {
     };
 
     const statusQuestion: PromptObject = {
-      type: 'text',
-      name: 'confirm',
+      type: 'confirm',
+      name: 'status',
       message: 'Enter country status',
       initial: true,
     };
@@ -45,9 +45,21 @@ export class CreateCountryCommand extends BaseCommand {
     const response: Answers<string> = await prompts(this.createQuestions());
     const country = response as CountryDto;
 
-    createCountryUseCase.execute(country);
+    this.log.info('Creating country...', country);
 
-    console.log(country);
+    try {
+      const result = await this.useCase.execute(country);
+
+      if (result.isFailure()) {
+        const { error } = result;
+
+        this.log.error('Country', error.message);
+      } else {
+        this.log.info('Country created!!!');
+      }
+    } catch (err) {
+      this.log.error('Country', err);
+    }
   }
 
   create(): Commander.Command {
