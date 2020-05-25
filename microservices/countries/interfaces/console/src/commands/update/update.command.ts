@@ -4,7 +4,7 @@ import { UpdateCountryUseCase } from '@micro/country-core/lib/application/use-ca
 import { FindCountryUseCase, IsoDto, CountryDto } from '@micro/country-core';
 import prompts, { PromptObject, Answers } from 'prompts';
 
-export class UpdateCountryCommand extends BaseCommand {
+export class UpdateCommand extends BaseCommand {
   private useCase: UpdateCountryUseCase;
   private findUseCase: FindCountryUseCase;
 

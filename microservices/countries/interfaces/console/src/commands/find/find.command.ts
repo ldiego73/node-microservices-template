@@ -4,7 +4,7 @@ import { FindCountryUseCase } from '@micro/country-core/lib/application/use-case
 import { IsoDto } from '@micro/country-core/lib/application/dtos';
 import prompts from 'prompts';
 
-export class FindCountryCommand extends BaseCommand {
+export class FindCommand extends BaseCommand {
   private useCase: FindCountryUseCase;
 
   constructor(useCase: FindCountryUseCase) {

@@ -4,7 +4,7 @@ import prompts, { PromptObject, Answers } from 'prompts';
 import { CountryDto } from '@micro/country-core';
 import { CreateCountryUseCase } from '@micro/country-core/lib/application/use-cases/create-country';
 
-export class CreateCountryCommand extends BaseCommand {
+export class CreateCommand extends BaseCommand {
   private useCase: CreateCountryUseCase;
 
   constructor(useCase: CreateCountryUseCase) {

@@ -4,7 +4,7 @@ import { DeleteCountryUseCase } from '@micro/country-core/lib/application/use-ca
 import prompts from 'prompts';
 import { IsoDto } from '@micro/country-core';
 
-export class DeleteCountryCommand extends BaseCommand {
+export class DeleteCommand extends BaseCommand {
   private useCase: DeleteCountryUseCase;
 
   constructor(useCase: DeleteCountryUseCase) {
