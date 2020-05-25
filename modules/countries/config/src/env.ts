@@ -7,8 +7,14 @@ export interface CountryDbEnv {
   storage: string;
 }
 
+export interface CountryHttps {
+  key: string;
+  cert: string;
+}
+
 export interface CountryServerEnv {
   port: number;
+  https?: CountryHttps;
 }
 
 export interface CountryEnv {
@@ -22,7 +28,7 @@ export const readEnv = (name: string = '.env'): CountryEnv => {
 
   config({ path });
 
-  return {
+  const env: CountryEnv = {
     db: {
       name: process.env.DB_NAME as string,
       type: process.env.DB_TYPE as string,
@@ -33,4 +39,13 @@ export const readEnv = (name: string = '.env'): CountryEnv => {
     },
     production: process.env.NODE_ENV === 'production',
   };
+
+  if (process.env.SERVER_HTTPS_CERT && process.env.SERVER_HTTPS_KEY) {
+    env.server.https = {
+      cert: process.env.SERVER_HTTPS_CERT as string,
+      key: process.env.SERVER_HTTPS_KEY as string,
+    };
+  }
+
+  return env;
 };
