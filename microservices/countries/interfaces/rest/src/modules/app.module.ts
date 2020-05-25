@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common';
-import { GraphQLModule } from '@nestjs/graphql';
-import path from 'path';
 
 import { ListModule } from './list/list.module';
 import { FindModule } from './find/find.module';
@@ -17,11 +15,6 @@ const modules = [
 ];
 
 @Module({
-  imports: [
-    ...modules,
-    GraphQLModule.forRoot({
-      autoSchemaFile: path.join(process.cwd(), 'src/schema.gql'),
-    }),
-  ],
+  imports: [...modules],
 })
 export class AppModule {}

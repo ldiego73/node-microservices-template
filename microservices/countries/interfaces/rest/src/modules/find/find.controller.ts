@@ -1,41 +1,12 @@
-import {
-  FindCountryUseCase,
-  FindCountryError,
-} from '@micro/countries-core/lib/application/use-cases';
-import { IsoDto } from '@micro/countries-core/lib/application/dtos';
-import { BaseController } from '../../core/base.controller';
-import { IsoInvalidError } from '@micro/countries-core/lib/domain';
+import { Controller, Get, Param } from '@nestjs/common';
+import { FindService } from './find.service';
 
-export class FindController extends BaseController {
-  private useCase: FindCountryUseCase;
+@Controller()
+export class FindController {
+  constructor(private readonly service: FindService) {}
 
-  constructor(useCase: FindCountryUseCase) {
-    super();
-    this.useCase = useCase;
-  }
-
-  protected async executeImpl(): Promise<any> {
-    const iso = this.req.params.iso;
-    const dto: IsoDto = { iso };
-
-    try {
-      const result = await this.useCase.execute(dto);
-
-      if (result.isFailure()) {
-        const { error } = result;
-        switch (error.constructor) {
-          case IsoInvalidError:
-            return this.bad(error.message);
-          case FindCountryError:
-            return this.notFound(error.message);
-          default:
-            return this.fail(error.message);
-        }
-      }
-
-      return this.ok(result.value);
-    } catch (err) {
-      return this.fail(err);
-    }
+  @Get(':iso')
+  async findByIso(@Param('iso') iso: string): Promise<any> {
+    return await this.service.execute(iso);
   }
 }

@@ -1,39 +1,13 @@
-import { BaseController } from '../../core/base.controller';
-import { CreateCountryUseCase, CountryAlreadyExistsError } from '@micro/countries-core/lib/application/use-cases';
+import { Controller, Get, Body, Post } from '@nestjs/common';
+import { CreateService } from './create.service';
 import { CountryDto } from '@micro/countries-core/lib/application/dtos';
-import { IsoInvalidError, CountryInvalidError } from '@micro/countries-core/lib/domain';
 
-export class CreateController extends BaseController {
-  private useCase: CreateCountryUseCase;
+@Controller()
+export class CreateController {
+  constructor(private readonly service: CreateService) {}
 
-  constructor(useCase: CreateCountryUseCase) {
-    super();
-    this.useCase = useCase;
-  }
-
-  protected async executeImpl(): Promise<any> {
-    const country = this.req.body as CountryDto;
-
-    try {
-      const result = await this.useCase.execute(country);
-
-      if (result.isFailure()) {
-        const { error } = result;
-        switch (error.constructor) {
-          case IsoInvalidError:
-            return this.bad(error.message);
-          case CountryInvalidError:
-            return this.bad(error.message);
-          case CountryAlreadyExistsError:
-            return this.conflict(error.message);
-          default:
-            return this.unprocessableEntity(error.message);
-        }
-      }
-
-      return this.created();
-    } catch (err) {
-      return this.fail(err);
-    }
+  @Post()
+  async findAll(@Body() country: CountryDto): Promise<any> {
+    return await this.service.execute(country);
   }
 }

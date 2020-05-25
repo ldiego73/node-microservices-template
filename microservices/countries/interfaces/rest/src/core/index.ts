@@ -1,3 +1,2 @@
 export * from './options';
-export * from './not-found.handler';
-export * from './error.handler';
+export * from './http-exception.filter';

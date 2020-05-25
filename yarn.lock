@@ -1742,6 +1742,7 @@
 "@nestjs/common@^7.1.0":
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-7.1.0.tgz#4fe8bc15903ee23d458c429b5cf7579edb0ef3a3"
+  integrity sha512-8m3GtC4qq3fVt7Ly4L54AO/NHwJR3Dt6wd3IoVLB9qZREYRoZMycpQTbzOLXkZh7wjzvHfWTNg4e4tFCCQD1qg==
   dependencies:
     axios "0.19.2"
     cli-color "2.0.0"
@@ -1752,6 +1753,7 @@
 "@nestjs/core@^7.1.0":
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/@nestjs/core/-/core-7.1.0.tgz#fbdd2388c2fc86c11d69ffd9c4ba8936491b4548"
+  integrity sha512-gnlQp+VmcEFwUVbwBOipdOKPHgk0CSAMEKiWrr+Jih2MXFPayAKphlRGzWQ0dFTmpMuZ1LhAfBLcejJXyBIj4g==
   dependencies:
     "@nuxtjs/opencollective" "0.2.2"
     fast-safe-stringify "2.0.7"
@@ -1788,6 +1790,7 @@
 "@nestjs/platform-fastify@^7.1.0":
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/@nestjs/platform-fastify/-/platform-fastify-7.1.0.tgz#e491c7153593d4f658770d7a24608af009e9b125"
+  integrity sha512-XtZjqmPyjTgNGT8mSuScaRzIgyS0dwqQMIGybhaQ5oRkowchd70+351Ly1YlzXycP4xB/Hu8ijwhmTiy26xgjw==
   dependencies:
     fastify "2.14.1"
     fastify-cors "3.0.3"
@@ -4905,7 +4908,7 @@ fastify-rate-limit@^3.0.1:
     ms "^2.1.1"
     tiny-lru "^7.0.0"
 
-fastify@2.14.1, fastify@^2.14.1:
+fastify@2.14.1:
   version "2.14.1"
   resolved "https://registry.yarnpkg.com/fastify/-/fastify-2.14.1.tgz#2946e8e9adebcd1b4f634178c8fb7162fb816cf4"
   dependencies:
@@ -5050,12 +5053,6 @@ findup-sync@3.0.0:
 flatstr@^1.0.12:
   version "1.0.12"
   resolved "https://registry.yarnpkg.com/flatstr/-/flatstr-1.0.12.tgz#c2ba6a08173edbb6c9640e3055b95e287ceb5931"
-
-fluent-schema@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/fluent-schema/-/fluent-schema-1.0.2.tgz#2c971858f6a64e70e2afc2d35b35722bdc43a22c"
-  dependencies:
-    deepmerge "^4.2.2"
 
 flush-write-stream@^1.0.0:
   version "1.1.1"
@@ -8653,6 +8650,7 @@ referrer-policy@^1.1.0:
 reflect-metadata@^0.1.13:
   version "0.1.13"
   resolved "https://registry.yarnpkg.com/reflect-metadata/-/reflect-metadata-0.1.13.tgz#67ae3ca57c972a2aa1642b10fe363fe32d49dc08"
+  integrity sha512-Ts1Y/anZELhSsjMcU605fU9RE4Oi3p5ORujwbIKXfWa+0Zxs510Qrmrce5/Jowq3cHSZSJqBjypxmHarc+vEWg==
 
 regenerator-runtime@^0.13.4:
   version "0.13.5"

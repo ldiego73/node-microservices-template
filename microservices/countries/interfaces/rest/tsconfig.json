@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+
     "target": "ES2019",
     "module": "CommonJS",
     "lib": ["ES2019"],
@@ -8,6 +9,9 @@
     "esModuleInterop": true,
     "noImplicitAny": true,
     "resolveJsonModule": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": true,
     "outDir": "lib"
   },
   "include": ["src/**/*", "@types"],

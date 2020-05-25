@@ -11,7 +11,7 @@ import rateLimit from 'fastify-rate-limit';
 import { readEnv } from '@micro/countries-config';
 import { Logger } from '@micro/logger';
 
-import { options } from './core';
+import { options, HttpExceptionFilter } from './core';
 import { AppModule } from './modules/app.module';
 
 const env = readEnv();
@@ -28,6 +28,7 @@ async function bootstrap() {
   app.register(cors);
   app.register(compression, { encodings: ['gzip', 'deflate'] });
   app.register(rateLimit, { max: 100, timeWindow: '1 minute' });
+  app.useGlobalFilters(new HttpExceptionFilter());
 
   await app.listen(env.server.port);
 
