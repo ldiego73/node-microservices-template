@@ -1,4 +1,4 @@
-import fastify, { FastifyInstance, ServerOptionsAsSecureHttp2 } from 'fastify';
+import fastify, { FastifyInstance } from 'fastify';
 import { readEnv } from '@micro/countries-config';
 import { Logger } from '@micro/logger';
 import { options, notFoundHandler, errorHandler } from './core';

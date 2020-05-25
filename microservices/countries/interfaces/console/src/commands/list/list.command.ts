@@ -1,6 +1,6 @@
 import { BaseCommand } from '../base.command';
 import * as Commander from 'commander';
-import { ListCountryUseCase } from '@micro/country-core/lib/application/use-cases/list-country';
+import { ListCountryUseCase } from '@micro/countries-core/lib/application/use-cases/list-country';
 
 export class ListCommand extends BaseCommand {
   private useCase: ListCountryUseCase;

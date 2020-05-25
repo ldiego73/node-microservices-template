@@ -10,8 +10,12 @@
   },
   "license": "MIT",
   "private": true,
+  "workspaces": [
+    "libs/*",
+    "microservices/**"
+  ],
   "devDependencies": {
-    "lerna": "^3.21.0",
-    "typescript": "^3.9.2"
+    "lerna": "^3.22.0",
+    "typescript": "^3.9.3"
   }
 }

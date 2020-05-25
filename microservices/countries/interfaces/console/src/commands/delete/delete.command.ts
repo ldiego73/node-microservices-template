@@ -1,8 +1,8 @@
 import { BaseCommand } from '../base.command';
 import * as Commander from 'commander';
-import { DeleteCountryUseCase } from '@micro/country-core/lib/application/use-cases/delete-country';
+import { DeleteCountryUseCase } from '@micro/countries-core/lib/application/use-cases/delete-country';
 import prompts from 'prompts';
-import { IsoDto } from '@micro/country-core';
+import { IsoDto } from '@micro/countries-core';
 
 export class DeleteCommand extends BaseCommand {
   private useCase: DeleteCountryUseCase;

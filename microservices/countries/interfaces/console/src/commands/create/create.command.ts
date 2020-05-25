@@ -1,8 +1,8 @@
 import { BaseCommand } from '../base.command';
 import * as Commander from 'commander';
 import prompts, { PromptObject, Answers } from 'prompts';
-import { CountryDto } from '@micro/country-core';
-import { CreateCountryUseCase } from '@micro/country-core/lib/application/use-cases/create-country';
+import { CountryDto } from '@micro/countries-core';
+import { CreateCountryUseCase } from '@micro/countries-core/lib/application/use-cases/create-country';
 
 export class CreateCommand extends BaseCommand {
   private useCase: CreateCountryUseCase;

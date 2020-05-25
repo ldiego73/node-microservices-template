@@ -1,7 +1,7 @@
 import { BaseCommand } from '../base.command';
 import * as Commander from 'commander';
-import { FindCountryUseCase } from '@micro/country-core/lib/application/use-cases/find-country';
-import { IsoDto } from '@micro/country-core/lib/application/dtos';
+import { FindCountryUseCase } from '@micro/countries-core/lib/application/use-cases/find-country';
+import { IsoDto } from '@micro/countries-core/lib/application/dtos';
 import prompts from 'prompts';
 
 export class FindCommand extends BaseCommand {

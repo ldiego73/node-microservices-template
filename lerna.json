@@ -1,8 +1,5 @@
 {
   "version": "1.0.0",
-  "packages": [
-    "libs/*",
-    "microservices/**"
-  ],
-  "npmClient": "yarn"
+  "npmClient": "yarn",
+  "useWorkspaces": true
 }

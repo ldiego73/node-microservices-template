@@ -1,4 +1,4 @@
-import { createCountryUseCase } from '@micro/country-core';
+import { createCountryUseCase } from '@micro/countries-core';
 import { CreateCommand } from './create.command';
 
 const createCommand = new CreateCommand(

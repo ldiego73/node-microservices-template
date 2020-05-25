@@ -1,7 +1,7 @@
 import { BaseCommand } from '../base.command';
 import * as Commander from 'commander';
-import { UpdateCountryUseCase } from '@micro/country-core/lib/application/use-cases/update-country';
-import { FindCountryUseCase, IsoDto, CountryDto } from '@micro/country-core';
+import { UpdateCountryUseCase } from '@micro/countries-core/lib/application/use-cases/update-country';
+import { FindCountryUseCase, IsoDto, CountryDto } from '@micro/countries-core';
 import prompts, { PromptObject, Answers } from 'prompts';
 
 export class UpdateCommand extends BaseCommand {

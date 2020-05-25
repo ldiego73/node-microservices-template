@@ -1,0 +1,28 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Country {
+  name: String!
+  iso: String!
+  currency: String!
+  status: Boolean!
+}
+
+type Query {
+  countries: [Country!]!
+  country(iso: String!): Country!
+}
+
+type Mutation {
+  create(input: CountryInput!): Boolean!
+  delete(iso: String!): Boolean!
+  update(input: CountryInput!): Boolean!
+}
+
+input CountryInput {
+  name: String!
+  iso: String!
+  currency: String!
+  status: Boolean!
+}
