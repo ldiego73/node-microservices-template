@@ -23,7 +23,7 @@ This project is structured by libraries and modules
 │   ├── kernel                            # Shared Kernel (@micro/kernel)
 │   ├── logger                            # Centralized library for logs both node js and browsers  (@micro/logger)  
 │   └── utils                             # Library for validations, extensions, etc. (@micro/utils)  
-├── modules
+├── microservices
 │   ├── countries
 │   │   ├── app
 │   │   ├── config
