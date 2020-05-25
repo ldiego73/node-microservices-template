@@ -43,115 +43,12 @@ This project is structured by libraries and modules
 │   │   │   │   ├── commands
 │   │   │   │   └── app.js
 │   │   │   ├── graphql
-│   │   │   │   ├── mutations
-│   │   │   │   ├── queries
-│   │   │   │   └── server.js
+│   │   │   │   ├── core
+│   │   │   │   ├── models
+│   │   │   │   ├── modules
+│   │   │   │   └── main.js
 │   │   │   └── rest
-│   │   │   │   ├── controllers
-│   │   │   │   ├── routers
-│   │   │   │   └── server.js
-│   ├── customers
-│   │   ├── app
-│   │   ├── config
-│   │   ├── core
-│   │   │   ├── application
-│   │   │   │   ├── dtos
-│   │   │   │   ├── transforms
-│   │   │   │   └── use-cases
-│   │   │   ├── domain
-│   │   │   │   └── errors
-│   │   │   ├── infraestructure
-│   │   │   │   ├── database
-│   │   │   │   ├── mappers
-│   │   │   │   └── repositories
-│   │   ├── interfaces
-│   │   │   ├── console
-│   │   │   │   ├── commands
-│   │   │   │   └── app.js
-│   │   │   ├── graphql
-│   │   │   │   ├── mutations
-│   │   │   │   ├── queries
-│   │   │   │   └── server.js
-│   │   │   └── rest
-│   │   │   │   ├── controllers
-│   │   │   │   ├── routers
-│   │   │   │   └── server.js
-│   ├── orders
-│   │   ├── app
-│   │   ├── config
-│   │   ├── core
-│   │   │   ├── application
-│   │   │   │   ├── dtos
-│   │   │   │   ├── transforms
-│   │   │   │   └── use-cases
-│   │   │   ├── domain
-│   │   │   │   └── errors
-│   │   │   ├── infraestructure
-│   │   │   │   ├── database
-│   │   │   │   ├── mappers
-│   │   │   │   └── repositories
-│   │   ├── interfaces
-│   │   │   ├── console
-│   │   │   │   ├── commands
-│   │   │   │   └── app.js
-│   │   │   ├── graphql
-│   │   │   │   ├── mutations
-│   │   │   │   ├── queries
-│   │   │   │   └── server.js
-│   │   │   └── rest
-│   │   │   │   ├── controllers
-│   │   │   │   ├── routers
-│   │   │   │   └── server.js
-│   ├── pokemon
-│   │   ├── app
-│   │   ├── config
-│   │   ├── core
-│   │   │   ├── application
-│   │   │   │   ├── dtos
-│   │   │   │   ├── transforms
-│   │   │   │   └── use-cases
-│   │   │   ├── domain
-│   │   │   │   └── errors
-│   │   │   ├── infraestructure
-│   │   │   │   ├── database
-│   │   │   │   ├── mappers
-│   │   │   │   └── repositories
-│   │   ├── interfaces
-│   │   │   ├── console
-│   │   │   │   ├── commands
-│   │   │   │   └── app.js
-│   │   │   ├── graphql
-│   │   │   │   ├── mutations
-│   │   │   │   ├── queries
-│   │   │   │   └── server.js
-│   │   │   └── rest
-│   │   │   │   ├── controllers
-│   │   │   │   ├── routers
-│   │   │   │   └── server.js
-│   └── products
-│   │   ├── app
-│   │   ├── config
-│   │   ├── core
-│   │   │   ├── application
-│   │   │   │   ├── dtos
-│   │   │   │   ├── transforms
-│   │   │   │   └── use-cases
-│   │   │   ├── domain
-│   │   │   │   └── errors
-│   │   │   ├── infraestructure
-│   │   │   │   ├── database
-│   │   │   │   ├── mappers
-│   │   │   │   └── repositories
-│   │   ├── interfaces
-│   │   │   ├── console
-│   │   │   │   ├── commands
-│   │   │   │   └── app.js
-│   │   │   ├── graphql
-│   │   │   │   ├── mutations
-│   │   │   │   ├── queries
-│   │   │   │   └── server.js
-│   │   │   └── rest
-│   │   │   │   ├── controllers
-│   │   │   │   ├── routers
-│   │   │   │   └── server.js
+│   │   │   │   ├── core
+│   │   │   │   ├── modules
+│   │   │   │   └── main.js
 └── README.md
