@@ -23,7 +23,6 @@
     "@micro/countries-config": "^1.0.0",
     "@micro/countries-core": "^1.0.0",
     "@micro/logger": "^1.0.0",
-    "@nestjs/cli": "^7.1.5",
     "@nestjs/common": "^7.1.0",
     "@nestjs/core": "^7.1.0",
     "@nestjs/graphql": "^7.3.11",
@@ -31,6 +30,7 @@
     "apollo-server-fastify": "^2.13.1",
     "fastify-compress": "^2.0.1",
     "fastify-cors": "^3.0.3",
+    "fastify-helmet": "^3.0.2",
     "fastify-rate-limit": "^3.0.1",
     "graphql": "^15.0.0",
     "graphql-tools": "^6.0.1",
@@ -40,7 +40,6 @@
   "devDependencies": {
     "@nestjs/cli": "^7.1.5",
     "@types/node": "^14.0.1",
-    "fastify-helmet": "^3.0.2",
     "rimraf": "^3.0.2",
     "ts-loader": "^7.0.4",
     "ts-node": "^8.10.1",

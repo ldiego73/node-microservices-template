@@ -4,7 +4,7 @@ import {
   updateCountryUseCase,
 } from '@micro/countries-core/lib/application/use-cases';
 import { CountryDto } from '@micro/countries-core/lib/application/dtos';
-import { CountryInput } from '../../models';
+import { CountrySchemaInput } from '../../models';
 
 @Injectable()
 export class UpdateService {
@@ -14,7 +14,7 @@ export class UpdateService {
     this.useCase = updateCountryUseCase;
   }
 
-  async execute(country: CountryInput): Promise<any> {;
+  async execute(country: CountrySchemaInput): Promise<any> {;
     const dto = country as CountryDto;
     const result = await this.useCase.execute(dto);
 

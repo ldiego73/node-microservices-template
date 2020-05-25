@@ -1,12 +1,12 @@
 import { Query, Resolver } from '@nestjs/graphql';
-import { Country } from '../../models/country.model';
+import { CountrySchema } from '../../models/country.model';
 import { ListService } from './list.service';
 
 @Resolver()
 export class ListResolver {
   constructor(private readonly service: ListService) {}
 
-  @Query(returns => [Country])
+  @Query(returns => [CountrySchema])
   async countries() {
     return await this.service.execute();
   }
