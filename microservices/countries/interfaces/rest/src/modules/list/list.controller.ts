@@ -2,10 +2,9 @@ import { FastifyRequest, FastifyReply } from 'fastify';
 import { ServerResponse } from 'http';
 
 import { ListCountryUseCase } from '@micro/countries-core/lib/application/use-cases';
-import { CountryDto } from '@micro/countries-core/lib/application/dtos';
 import { BaseController } from '../../core/base.controller';
 
-export class ListController extends BaseController<CountryDto[]> {
+export class ListController extends BaseController {
   private useCase: ListCountryUseCase;
 
   constructor(useCase: ListCountryUseCase) {
@@ -13,16 +12,13 @@ export class ListController extends BaseController<CountryDto[]> {
     this.useCase = useCase;
   }
 
-  async execute(
-    request: FastifyRequest,
-    reply: FastifyReply<ServerResponse>
-  ): Promise<CountryDto[]> {
-    this.logger.info('Listing countries...');
+  protected async executeImpl(): Promise<any> {
+    try {
+      const result = await this.useCase.execute();
 
-    const result = await this.useCase.execute();
-
-    this.logger.info('Listed countries!!!');
-
-    return result.value;
+      this.ok(result.value);
+    } catch (err) {
+      this.fail(err);
+    }
   }
 }

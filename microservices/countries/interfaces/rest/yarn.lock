@@ -987,6 +987,12 @@ flatstr@^1.0.12:
   version "1.0.12"
   resolved "https://registry.yarnpkg.com/flatstr/-/flatstr-1.0.12.tgz#c2ba6a08173edbb6c9640e3055b95e287ceb5931"
 
+fluent-schema@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/fluent-schema/-/fluent-schema-1.0.2.tgz#2c971858f6a64e70e2afc2d35b35722bdc43a22c"
+  dependencies:
+    deepmerge "^4.2.2"
+
 flush-write-stream@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/flush-write-stream/-/flush-write-stream-1.1.1.tgz#8dd7d873a1babc207d94ead0c2e0e44276ebf2e8"

@@ -1,7 +1,7 @@
 import fastify, { FastifyInstance, ServerOptionsAsSecureHttp2 } from 'fastify';
 import { readEnv } from '@micro/countries-config';
 import { Logger } from '@micro/logger';
-import { options } from './core';
+import { options, notFoundHandler, errorHandler } from './core';
 import { routes } from './modules';
 
 const env = readEnv();
@@ -13,6 +13,9 @@ const server: FastifyInstance = fastify(serverOptions);
 routes.forEach(r => {
   server.route(r);
 });
+
+server.setNotFoundHandler(notFoundHandler);
+server.setErrorHandler(errorHandler);
 
 server.listen(env.server.port, '0.0.0.0', (err: Error, address: string) => {
   if (err) {

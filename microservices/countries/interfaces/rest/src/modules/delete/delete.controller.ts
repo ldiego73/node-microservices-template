@@ -1,15 +1,12 @@
-import {
-  FindCountryUseCase,
-  FindCountryError,
-} from '@micro/countries-core/lib/application/use-cases';
+import { DeleteCountryUseCase } from '@micro/countries-core/lib/application/use-cases';
 import { IsoDto } from '@micro/countries-core/lib/application/dtos';
 import { BaseController } from '../../core/base.controller';
 import { IsoInvalidError } from '@micro/countries-core/lib/domain';
 
-export class FindController extends BaseController {
-  private useCase: FindCountryUseCase;
+export class DeleteController extends BaseController {
+  private useCase: DeleteCountryUseCase;
 
-  constructor(useCase: FindCountryUseCase) {
+  constructor(useCase: DeleteCountryUseCase) {
     super();
     this.useCase = useCase;
   }
@@ -26,14 +23,12 @@ export class FindController extends BaseController {
         switch (error.constructor) {
           case IsoInvalidError:
             return this.bad(error.message);
-          case FindCountryError:
-            return this.notFound(error.message);
           default:
-            return this.fail(error.message);
+            return this.unprocessableEntity(error.message);
         }
       }
 
-      return this.ok(result.value);
+      return this.noContent();
     } catch (err) {
       return this.fail(err);
     }

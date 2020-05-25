@@ -8,6 +8,6 @@ const params = S.object().prop(
     .required()
 );
 
-export const findSchema = {
+export const deleteSchema = {
   params,
 };
