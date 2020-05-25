@@ -1,5 +1,5 @@
 {
-  "name": "@micro/country-console",
+  "name": "@micro/countries-console",
   "version": "1.0.0",
   "description": "Country Console Interface",
   "author": {
@@ -8,19 +8,19 @@
     "url": "http://github.com/ldiego73"
   },
   "license": "MIT",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "lib/console.js",
+  "types": "lib/console.d.ts",
   "files": [
     "lib/"
   ],
   "scripts": {
     "clean": "rimraf lib",
-    "develop": "ts-node src/index.ts",
+    "develop": "ts-node src/console.ts",
     "prebuild": "yarn clean",
     "build": "webpack"
   },
   "dependencies": {
-    "@micro/country-core": "^1.0.0",
+    "@micro/countries-core": "^1.0.0",
     "@micro/logger": "^1.0.0",
     "commander": "^5.1.0",
     "prompts": "^2.3.2"

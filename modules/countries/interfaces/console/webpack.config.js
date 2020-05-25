@@ -35,7 +35,7 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.js'],
   },
-  externals: [nodeExternals(), '@micro/country-core', 'commander', 'prompts'],
+  externals: [nodeExternals(), '@micro/countries-core', '@micro/logger', 'commander', 'prompts'],
   output: {
     path: path.resolve(__dirname, './lib'),
     filename: '[name].js',
