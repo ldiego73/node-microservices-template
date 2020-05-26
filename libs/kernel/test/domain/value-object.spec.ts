@@ -60,7 +60,6 @@ describe('ValueObject', () => {
       expect(password.value).toEqual(passwordValue);
     });
 
-
     it('should password is nullable', () => {
       expect(() => UserPassword.create()).toThrowError(
         new Error('The password is null or undefined')
