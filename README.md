@@ -21,7 +21,8 @@ This project is structured by libraries and modules
 │   └── settings.json                    
 ├── libs                                  # Folder that contains the libs for the microservices
 │   ├── kernel                            # Shared Kernel (@micro/kernel)
-│   ├── logger                            # Centralized library for logs both node js and browsers  (@micro/logger)  
+│   ├── logger                            # Centralized library for logs both node js and browsers (@micro/logger)  
+│   ├── server                            # Centralized library for create custom server using NestJS (@micro/server)  
 │   └── utils                             # Library for validations, extensions, etc. (@micro/utils)  
 ├── microservices
 │   ├── countries
