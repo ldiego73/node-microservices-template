@@ -13,12 +13,8 @@ describe('Validator', () => {
 
     it('should be the value is string', () => {
       const value =
-        Math.random()
-          .toString(36)
-          .substring(2, 15) +
-        Math.random()
-          .toString(36)
-          .substring(2, 15);
+        Math.random().toString(36).substring(2, 15) +
+        Math.random().toString(36).substring(2, 15);
       const result = validator.string()(value);
 
       expect(result.success).toBeTruthy();
@@ -310,10 +306,7 @@ describe('Validator', () => {
     });
 
     it('should be the object validate map', () => {
-      const result = validator.validateMap<string>(
-        validator.string(),
-        phones
-      );
+      const result = validator.validateMap<string>(validator.string(), phones);
 
       expect(result.success).toBeTruthy();
     });

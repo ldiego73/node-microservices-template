@@ -29,19 +29,19 @@ export const fail = (message: string): ValidatorResult => ({
 });
 
 export function object<T extends object>(schema: Schema<T>): Validator<T> {
-  return function(values: T) {
+  return function (values: T) {
     return validate(schema, values);
   };
 }
 
 export function map<T>(fn: Validator<T>): Validator<{ [key: string]: T }> {
-  return function(values: { [key: string]: T }) {
+  return function (values: { [key: string]: T }) {
     return validateMap(fn, values);
   };
 }
 
 export function number(): Validator<number> {
-  return function(value: any) {
+  return function (value: any) {
     const result = isNumber(value);
     if (result) return ok();
 
@@ -50,7 +50,7 @@ export function number(): Validator<number> {
 }
 
 export function gt(n: number): Validator<number> {
-  return function(value: number) {
+  return function (value: number) {
     const result = isNumber(value) && value > n;
 
     if (result) return ok();
@@ -60,7 +60,7 @@ export function gt(n: number): Validator<number> {
 }
 
 export function gte(n: number): Validator<number> {
-  return function(value: number) {
+  return function (value: number) {
     const result = isNumber(value) && value >= n;
 
     if (result) return ok();
@@ -70,7 +70,7 @@ export function gte(n: number): Validator<number> {
 }
 
 export function lt(n: number): Validator<number> {
-  return function(value: number) {
+  return function (value: number) {
     const result = isNumber(value) && value < n;
 
     if (result) return ok();
@@ -80,7 +80,7 @@ export function lt(n: number): Validator<number> {
 }
 
 export function lte(n: number): Validator<number> {
-  return function(value: number) {
+  return function (value: number) {
     const result = isNumber(value) && value <= n;
 
     if (result) return ok();
@@ -90,7 +90,7 @@ export function lte(n: number): Validator<number> {
 }
 
 export function string(): Validator<string> {
-  return function(value: any) {
+  return function (value: any) {
     const result = isString(value);
 
     if (result) return ok();
@@ -100,7 +100,7 @@ export function string(): Validator<string> {
 }
 
 export function boolean(): Validator<boolean> {
-  return function(value: any) {
+  return function (value: any) {
     const result = isBoolean(value);
 
     if (result) return ok();
@@ -110,7 +110,7 @@ export function boolean(): Validator<boolean> {
 }
 
 export function any(): Validator<any> {
-  return function(value: any) {
+  return function (value: any) {
     const result = isNullOrUndefined(value);
 
     if (!result) return ok();
@@ -120,7 +120,7 @@ export function any(): Validator<any> {
 }
 
 export function optional<T>(fn: Validator<T & {}>): Validator<T | undefined> {
-  return function(value: T | undefined) {
+  return function (value: T | undefined) {
     if (isNullOrUndefined(value)) {
       return ok();
     } else {
@@ -130,7 +130,7 @@ export function optional<T>(fn: Validator<T & {}>): Validator<T | undefined> {
 }
 
 export function array<T>(fn: Validator<T>): Validator<Array<T>> {
-  return function(value: Array<T>) {
+  return function (value: Array<T>) {
     if (!isArray(value)) {
       return fail('is not array');
     }
@@ -145,7 +145,7 @@ export function array<T>(fn: Validator<T>): Validator<Array<T>> {
 }
 
 export function pattern(regex: RegExp): Validator<string> {
-  return function(value: string) {
+  return function (value: string) {
     const result = regex.test(value);
 
     if (result) return ok();
@@ -155,7 +155,7 @@ export function pattern(regex: RegExp): Validator<string> {
 }
 
 export function equal<T>(option: T): Validator<T> {
-  return function(value: T) {
+  return function (value: T) {
     const result = value === option;
 
     if (result) return ok();
@@ -165,8 +165,8 @@ export function equal<T>(option: T): Validator<T> {
 }
 
 export function options<T>(...options: Array<T>): Validator<T> {
-  return function(value: T) {
-    const result = options.some(option => value === option);
+  return function (value: T) {
+    const result = options.some((option) => value === option);
 
     if (result) return ok();
 
@@ -175,7 +175,7 @@ export function options<T>(...options: Array<T>): Validator<T> {
 }
 
 export function or<X, Y>(x: Validator<X>, y: Validator<Y>): Validator<X | Y> {
-  return function(value: X | Y) {
+  return function (value: X | Y) {
     const resultX = x(value as X).success;
     const resultY = y(value as Y).success;
     const result = resultX || resultY;
@@ -187,7 +187,7 @@ export function or<X, Y>(x: Validator<X>, y: Validator<Y>): Validator<X | Y> {
 }
 
 export function and<X>(x: Validator<X>, y: Validator<X>): Validator<X> {
-  return function(value: X) {
+  return function (value: X) {
     const resultX = x(value).success;
     const resultY = y(value).success;
     const result = resultX && resultY;

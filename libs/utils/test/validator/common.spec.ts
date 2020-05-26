@@ -43,12 +43,8 @@ describe('Validator Common', () => {
 
   it('should be the object is string', () => {
     const value =
-      Math.random()
-        .toString(36)
-        .substring(2, 15) +
-      Math.random()
-        .toString(36)
-        .substring(2, 15);
+      Math.random().toString(36).substring(2, 15) +
+      Math.random().toString(36).substring(2, 15);
 
     expect(isString(value)).toBeTruthy();
   });
