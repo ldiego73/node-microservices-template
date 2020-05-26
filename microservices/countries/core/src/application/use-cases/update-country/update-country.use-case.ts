@@ -1,12 +1,12 @@
 import { UseCase, UseCaseUnexpectedError } from '@micro/kernel/lib/application';
 import { Either, Result } from '@micro/kernel/lib/result';
 import { CountryRepository, Iso, Country } from '../../../domain';
-import { IsoInvalidError, CountryInvalidError } from '../../../domain/errors';
+import { IsoInvalidError } from '../../../domain/errors';
 import { CountryDto } from '../../dtos';
 import { CountryNotExistsError } from './update-country.error';
 
 type Response<T> = Either<
-  IsoInvalidError | CountryInvalidError | UseCaseUnexpectedError,
+  IsoInvalidError | CountryNotExistsError | UseCaseUnexpectedError,
   T
 >;
 

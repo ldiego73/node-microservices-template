@@ -6,7 +6,10 @@ import { CountryDto } from '../../dtos';
 import { CountryAlreadyExistsError } from './create-country.error';
 
 type Response<T> = Either<
-  IsoInvalidError | CountryInvalidError | UseCaseUnexpectedError,
+  | IsoInvalidError
+  | CountryInvalidError
+  | CountryAlreadyExistsError
+  | UseCaseUnexpectedError,
   T
 >;
 

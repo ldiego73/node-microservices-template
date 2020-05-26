@@ -1,12 +1,37 @@
-import { Controller, Delete, Param } from '@nestjs/common';
+import {
+  Controller,
+  Delete,
+  Param,
+  HttpCode,
+  HttpStatus,
+} from '@nestjs/common';
+import { BaseController } from '@micro/server';
+import { IsoInvalidError } from '@micro/countries-core/lib/domain';
+import { UseCaseUnexpectedError } from '@micro/kernel/lib/application';
 import { DeleteService } from './delete.service';
 
 @Controller()
-export class DeleteController {
-  constructor(private readonly service: DeleteService) {}
+export class DeleteController extends BaseController {
+  constructor(private readonly service: DeleteService) {
+    super();
+  }
 
   @Delete(':iso')
+  @HttpCode(HttpStatus.NO_CONTENT)
   async deleteById(@Param('iso') iso: string): Promise<any> {
-    return await this.service.execute(iso);
+    try {
+      return await this.service.execute(iso);
+    } catch (err) {
+      switch (err.constructor) {
+        case IsoInvalidError:
+          this.bad(err.message);
+          break;
+        case UseCaseUnexpectedError:
+          this.fail(err.message);
+          break;
+        default:
+          throw err;
+      }
+    }
   }
 }

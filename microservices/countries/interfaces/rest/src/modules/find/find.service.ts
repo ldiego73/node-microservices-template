@@ -2,16 +2,16 @@ import { Injectable } from '@nestjs/common';
 import {
   FindCountryUseCase,
   findCountryUseCase,
-  FindCountryError,
 } from '@micro/countries-core/lib/application/use-cases';
 import { IsoDto } from '@micro/countries-core/lib/application/dtos';
-import { IsoInvalidError } from '@micro/countries-core/lib/domain';
+import { BaseService } from '@micro/server';
 
 @Injectable()
-export class FindService {
+export class FindService extends BaseService{
   private readonly useCase: FindCountryUseCase;
 
   constructor() {
+    super();
     this.useCase = findCountryUseCase;
   }
 
@@ -20,7 +20,7 @@ export class FindService {
     const result = await this.useCase.execute(dto);
 
     if (result.isFailure()) {
-      throw result.error.message;
+      throw result.error;
     }
 
     return result.value;
