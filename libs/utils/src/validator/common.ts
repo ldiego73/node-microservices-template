@@ -1,10 +1,11 @@
 export const typeOf = (type: string) => (value: any): boolean =>
   typeof value === type;
 
-export const toType = (value: any): string => {
-  const result = Object.prototype.toString.call(value).match(/\s([a-z|A-Z]+)/);
-  return result ? result[1].toLowerCase() : '(empty)';
-};
+export const toType = (value: any): string =>
+  Object.prototype.toString
+    .call(value)
+    .match(/\s([a-z|A-Z]+)/)![1]
+    .toLowerCase();
 
 export const isUndefined = (value: any): value is undefined =>
   typeOf('undefined')(value);
