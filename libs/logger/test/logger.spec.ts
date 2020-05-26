@@ -1,4 +1,4 @@
-import { LogLevel, LogOutput } from '../src/base.logger';
+import { LogLevel } from '../src/base.logger';
 import { Logger } from '../src/logger';
 
 describe('Logger', () => {

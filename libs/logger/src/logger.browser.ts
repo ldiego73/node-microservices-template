@@ -1,9 +1,9 @@
 import { BaseLogger, LogLevel } from './base.logger';
 
 export class Logger extends BaseLogger {
-  protected build(level: LogLevel, message: string, data: any[]): any[] {
+  protected build(level: LogLevel, message: string, data: unknown[]): unknown[] {
+    const title: string = LogLevel[level].toUpperCase();
     let background: string;
-    let title: string = LogLevel[level].toUpperCase();
 
     switch (level) {
       case LogLevel.Debug:
@@ -23,7 +23,7 @@ export class Logger extends BaseLogger {
         break;
     }
 
-    const result: any[] = [];
+    const result: unknown[] = [];
     const printTime = Logger.showTimestamp ? `${this.timestamp()} ` : '';
 
     result.push(`${printTime}%c${title}`);
@@ -33,10 +33,10 @@ export class Logger extends BaseLogger {
     if (this.source) result.push(`${this.source}:`);
     result.push(message);
 
-    return result;
+    return result.concat(data);
   }
 
-  static create(name?: string) {
+  static create(name?: string): Logger {
     return new Logger(name);
   }
 }

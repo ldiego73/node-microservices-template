@@ -19,9 +19,9 @@ export type LogOutput = (
 export abstract class BaseLogger {
   static level = LogLevel.Log;
   static outputs: LogOutput[] = [];
-  static showTimestamp: boolean = true;
+  static showTimestamp = true;
 
-  static enableProductionMode() {
+  static enableProductionMode(): void {
     BaseLogger.level = LogLevel.Warning;
   }
 
@@ -29,27 +29,27 @@ export abstract class BaseLogger {
     if (source) this.source = source.toUpperCase();
   }
 
-  log(message: string, ...data: any[]) {
+  log(message: string, ...data: any[]): void {
     this.doLog(console.log, LogLevel.Log, message, data);
   }
 
-  debug(message: string, ...data: any[]) {
+  debug(message: string, ...data: any[]): void {
     this.doLog(console.debug, LogLevel.Debug, message, data);
   }
 
-  info(message: string, ...data: any[]) {
+  info(message: string, ...data: any[]): void {
     this.doLog(console.info, LogLevel.Info, message, data);
   }
 
-  warn(message: string, ...data: any[]) {
+  warn(message: string, ...data: any[]): void {
     this.doLog(console.warn, LogLevel.Warning, message, data);
   }
 
-  error(message: string, ...data: any[]) {
+  error(message: string, ...data: any[]): void {
     this.doLog(console.error, LogLevel.Error, message, data);
   }
 
-  protected timestamp() {
+  protected timestamp(): string {
     return `[${dateFormat(new Date(), dateFormat.masks.isoDateTime)}]`;
   }
 
@@ -63,7 +63,7 @@ export abstract class BaseLogger {
       return;
     }
 
-    let log = this.build(level, message, data);
+    const log = this.build(level, message, data);
 
     func.apply(console, log);
 

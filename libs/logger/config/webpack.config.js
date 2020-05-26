@@ -16,4 +16,8 @@ const nodeConfig = Object.assign(config, {
   },
 });
 
+nodeConfig.module.rules[0].options = {
+  configFile: 'tsconfig.build.json',
+};
+
 module.exports = nodeConfig;

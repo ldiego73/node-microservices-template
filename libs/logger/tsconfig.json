@@ -13,10 +13,6 @@
     "removeComments": true,
     "outDir": "lib"
   },
-  "files": [
-    "src/@types/dateformat.d.ts",
-    "src/base.logger.ts",
-    "src/logger.ts"
-  ],
-  "exclude": ["node_modules", "test", "lib"]
+  "include": ["src/**/*", "test/**/*"],
+  "exclude": ["node_modules", "lib"]
 }

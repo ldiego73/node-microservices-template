@@ -2,10 +2,10 @@ import chalk, { Chalk } from 'chalk';
 import { BaseLogger, LogLevel } from './base.logger';
 
 export class Logger extends BaseLogger {
-  protected build(level: LogLevel, message: string, data: any[]) {
+  protected build(level: LogLevel, message: string, data: unknown[]): unknown[] {
     const color: Chalk = chalk.gray;
+    const title: string = LogLevel[level].toUpperCase();
     let titleColor: Chalk;
-    let title: string = LogLevel[level].toUpperCase();
 
     switch (level) {
       case LogLevel.Debug:
@@ -25,7 +25,7 @@ export class Logger extends BaseLogger {
         break;
     }
 
-    const result: any[] = [];
+    const result: unknown[] = [];
 
     if (Logger.showTimestamp) result.push(color(this.timestamp()));
     result.push(titleColor(title));
@@ -35,7 +35,7 @@ export class Logger extends BaseLogger {
     return result.concat(data);
   }
 
-  static create(name?: string) {
+  static create(name?: string): Logger {
     return new Logger(name);
   }
 }

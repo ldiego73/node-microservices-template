@@ -15,7 +15,7 @@ const webConfig = Object.assign(config, {
 });
 
 webConfig.module.rules[0].options = {
-  configFile: 'tsconfig.browser.json',
+  configFile: 'tsconfig.build.browser.json',
 };
 
 module.exports = webConfig;
