@@ -3,7 +3,7 @@ import { UniqueEntityId } from '../../../src/domain/unique-entity-id';
 import { Address } from './address';
 
 interface ContactProps {
-  firstName: string | null;
+  firstName?: string | null;
   lastName: string | null;
   age: number;
   birthday?: number;
@@ -45,8 +45,8 @@ export class Contact extends AggregateRoot<ContactProps> {
   }
 
   public static create(props: ContactProps, id?: UniqueEntityId): Contact {
-    if (props.firstName === null || props.firstName === undefined) {
-      throw new Error('The firstName is null or undefined');
+    if (props.firstName === undefined) {
+      throw new Error('The firstName is undefined');
     }
 
     if (props.address === null || props.address === undefined) {

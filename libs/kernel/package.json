@@ -15,9 +15,9 @@
   ],
   "scripts": {
     "clean": "rimraf lib",
-    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\" --loglevel silent",
     "lint": "eslint \"{src,test}/**/*.ts\" -f stylish",
-    "prebuild": "yarn clean",
+    "prebuild": "yarn clean && yarn format",
     "build": "webpack --silent",
     "test": "jest --passWithNoTests"
   },

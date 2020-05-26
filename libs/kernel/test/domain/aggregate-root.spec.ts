@@ -128,16 +128,27 @@ describe('AggregateRoot', () => {
     expect(contact.birthday).not.toEqual(0);
   });
 
-  it('should firstName is nullable', () => {
+  it('should firstName is undefined', () => {
     expect(() =>
       Contact.create({
-        firstName: null,
         lastName: 'Diego',
         age: 30,
         address,
         status: true,
       })
-    ).toThrowError(new Error('The firstName is null or undefined'));
+    ).toThrowError(new Error('The firstName is undefined'));
+  });
+
+  it('should firstName is nullable', () => {
+    const contact = Contact.create({
+      firstName: null,
+      lastName: 'Diego',
+      age: 30,
+      address,
+      status: true,
+    });
+
+    expect(contact.firstName).toEqual('');
   });
 
   it('should lastName is nullable', () => {
