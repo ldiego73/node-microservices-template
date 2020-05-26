@@ -24,10 +24,6 @@ export class Contact extends AggregateRoot<ContactProps> {
     return this.props.age;
   }
 
-  get birthday(): number {
-    return this.props.birthday ?? 0;
-  }
-
   get address(): Address | null {
     return this.props.address;
   }
@@ -38,6 +34,10 @@ export class Contact extends AggregateRoot<ContactProps> {
 
   set status(value: boolean) {
     this.props.status = value;
+  }
+
+  get birthday(): number {
+    return this.props.birthday ?? 0;
   }
 
   set birthday(value: number) {

@@ -19,6 +19,10 @@ export class User extends Entity<UserProps> {
     return this.props.username;
   }
 
+  set username(value: string) {
+    this.props.username = value;
+  }
+
   get password(): UserPassword {
     return this.props.password;
   }
@@ -29,10 +33,6 @@ export class User extends Entity<UserProps> {
 
   get isEmailVerified(): boolean {
     return this.props.isEmailVerified;
-  }
-
-  set username(value: string) {
-    this.props.username = value;
   }
 
   public static create(props: UserProps, id?: UniqueEntityId): User {

@@ -1,3 +1,5 @@
+/*eslint prefer-const: 0*/
+
 import { UniqueEntityId } from '../../src/domain/unique-entity-id';
 import { User, UserEmail, UserPassword } from './models';
 

@@ -15,7 +15,7 @@ export class UserEmail extends ValueObject<UserEmailProps> {
     super(props);
   }
 
-  public static create(email?: string) {
+  public static create(email?: string): UserEmail {
     if (email === null || email === undefined) {
       throw new Error('The email is null or undefined');
     }

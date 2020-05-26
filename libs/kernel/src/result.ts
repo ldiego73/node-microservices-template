@@ -40,20 +40,20 @@ export class Success<L, A> {
   }
 }
 
-export namespace Result {
-  export function fail<L, A>(l: L): Either<L, A> {
+export class Result {
+  public static fail<L, A>(l: L): Either<L, A> {
     return new Failure(l);
   }
 
-  export function ok<L, A>(a?: A): Either<L, A> {
+  public static ok<L, A>(a?: A): Either<L, A> {
     return new Success(a);
   }
 
-  export function combine<L, A>(results: Either<L, A>[]): Either<L, A> {
-    for (let result of results) {
+  public static combine<L, A>(results: Either<L, A>[]): Either<L, A> {
+    for (const result of results) {
       if (result.isFailure()) return result;
     }
 
-    return ok();
+    return Result.ok();
   }
 }

@@ -13,7 +13,7 @@ export class UserPassword extends ValueObject<UserPasswordProps> {
     super(props);
   }
 
-  public static create(password?: string) {
+  public static create(password?: string): UserPassword {
     if (password === null || password === undefined) {
       throw new Error('The password is null or undefined');
     }

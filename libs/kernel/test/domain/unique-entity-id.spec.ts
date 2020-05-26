@@ -6,8 +6,8 @@ describe('UniqueEntityId', () => {
   });
 
   it('should create an unique entity id string or number', () => {
-    const code: string = 'CODE';
-    const id: number = 123;
+    const code = 'CODE';
+    const id = 123;
 
     const id1 = new UniqueEntityId(code);
     const id2 = new UniqueEntityId(id);
