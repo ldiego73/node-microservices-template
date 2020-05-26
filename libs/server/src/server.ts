@@ -19,6 +19,7 @@ const readCert = (cert: string): Buffer =>
 export class Server {
   protected log: Logger;
   private app!: NestFastifyApplication;
+  private plugins: any[] = [];
   private readonly appModule: unknown;
   private readonly options: ServerOptions;
 
@@ -32,6 +33,7 @@ export class Server {
     this.options = Object.assign(
       {
         port: 3000,
+        logger: true,
         stack: true,
       } as ServerOptions,
       options
@@ -64,19 +66,27 @@ export class Server {
     return adapter;
   }
 
-  private async bootstrap(appModule: any) {
+  private async bootstrap(appModule: unknown) {
     this.app = await NestFactory.create<NestFastifyApplication>(
       appModule,
-      this.adapter()
+      this.adapter(),
+      {
+        logger: this.options.logger ? ['error', 'warn'] : false,
+      }
     );
 
     this.app.register(helmet);
     this.app.register(compression, { encodings: ['gzip', 'deflate'] });
+
+    this.plugins.forEach((p) => {
+      this.app.register(...p);
+    });
+
     this.app.useGlobalFilters(new HttpExceptionFilter());
   }
 
   public register(...args: any[]): void {
-    this.app.register(...args);
+    this.plugins.push(args);
   }
 
   public async start(): Promise<void> {

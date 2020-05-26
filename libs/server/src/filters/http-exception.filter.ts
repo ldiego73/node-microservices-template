@@ -7,9 +7,14 @@ import {
 } from '@nestjs/common';
 import { FastifyRequest, FastifyReply } from 'fastify';
 import { ServerResponse } from 'http';
+import { Logger } from '@micro/logger';
+import { isObject } from '@micro/utils';
+
 import { Exception, ResponseException } from '../exceptions/response.exception';
 
 type Response = HttpException | ResponseException | Error | string;
+
+const logger = Logger.create('HttpExceptionFilter');
 
 @Catch()
 export class HttpExceptionFilter implements ExceptionFilter {
@@ -30,10 +35,11 @@ export class HttpExceptionFilter implements ExceptionFilter {
     let response: Exception;
 
     if (exception instanceof HttpException) {
+      const res = exception.getResponse();
       response = {
         status: exception.getStatus(),
         message: exception.message,
-        code: exception.name,
+        code: isObject(res) ? (res as any).error : exception.name,
       };
     } else if (exception instanceof ResponseException) {
       response = {

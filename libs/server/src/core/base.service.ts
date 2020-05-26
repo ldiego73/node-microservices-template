@@ -1,6 +1,6 @@
 import { Logger } from '@micro/logger';
 
-export abstract class Controller {
+export abstract class BaseService {
   protected log: Logger;
 
   constructor() {

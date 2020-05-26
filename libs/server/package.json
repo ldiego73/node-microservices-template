@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@micro/logger": "^1.0.0",
+    "@micro/utils": "^1.0.0",
     "@nestjs/common": "^7.1.0",
     "@nestjs/core": "^7.1.0",
     "@nestjs/platform-fastify": "^7.1.0",

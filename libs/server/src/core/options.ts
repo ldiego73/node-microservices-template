@@ -1,5 +1,6 @@
 export interface ServerOptions {
   port: number;
+  logger?: boolean;
   stack?: boolean;
   https?: ServerHttpsOptions;
 }
