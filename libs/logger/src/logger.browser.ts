@@ -1,7 +1,11 @@
 import { BaseLogger, LogLevel } from './base.logger';
 
 export class Logger extends BaseLogger {
-  protected build(level: LogLevel, message: string, data: unknown[]): unknown[] {
+  protected build(
+    level: LogLevel,
+    message: string,
+    data: unknown[]
+  ): unknown[] {
     const title: string = LogLevel[level].toUpperCase();
     let background: string;
 

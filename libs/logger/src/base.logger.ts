@@ -77,9 +77,8 @@ export abstract class BaseLogger {
   ): any[];
 
   private applyLoggerOutpus(level: LogLevel, message: string, data: any[]) {
-    BaseLogger.outputs.forEach(output => {
-      output.apply(output, [this.source, level, message, ...data])
-    }
-    );
+    BaseLogger.outputs.forEach((output) => {
+      output.apply(output, [this.source, level, message, ...data]);
+    });
   }
 }

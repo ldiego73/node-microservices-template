@@ -2,7 +2,11 @@ import chalk, { Chalk } from 'chalk';
 import { BaseLogger, LogLevel } from './base.logger';
 
 export class Logger extends BaseLogger {
-  protected build(level: LogLevel, message: string, data: unknown[]): unknown[] {
+  protected build(
+    level: LogLevel,
+    message: string,
+    data: unknown[]
+  ): unknown[] {
     const color: Chalk = chalk.gray;
     const title: string = LogLevel[level].toUpperCase();
     let titleColor: Chalk;
