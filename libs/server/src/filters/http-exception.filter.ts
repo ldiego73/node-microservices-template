@@ -1,66 +1,23 @@
-import {
-  ExceptionFilter,
-  Catch,
-  ArgumentsHost,
-  HttpException,
-  HttpStatus,
-} from '@nestjs/common';
+import { ExceptionFilter, Catch, ArgumentsHost } from '@nestjs/common';
 import { FastifyRequest, FastifyReply } from 'fastify';
 import { ServerResponse } from 'http';
-import { Logger } from '@micro/logger';
-import { isObject } from '@micro/utils';
 
-import { Exception, ResponseException } from '../exceptions/response.exception';
-
-type Response = HttpException | ResponseException | Error | string;
-
-const logger = Logger.create('HttpExceptionFilter');
+import { BaseExceptionFilter } from './base.exception.filter';
 
 @Catch()
-export class HttpExceptionFilter implements ExceptionFilter {
-  catch(exception: Response, host: ArgumentsHost): void {
+export class HttpExceptionFilter extends BaseExceptionFilter
+  implements ExceptionFilter {
+  constructor() {
+    super();
+  }
+
+  catch(exception: any, host: ArgumentsHost): void {
     const ctx = host.switchToHttp();
     const req = ctx.getRequest<FastifyRequest>();
     const res = ctx.getResponse<FastifyReply<ServerResponse>>();
 
-    const result = this.createException(exception);
-
-    if (!result.timestamp) result.timestamp = new Date().toISOString();
-    if (!req.raw.url) result.path = req.raw.url;
+    const result = this.createException(exception, req.raw.url);
 
     res.code(result.status).send(result);
-  }
-
-  createException(exception: Response): Exception {
-    let response: Exception;
-
-    if (exception instanceof HttpException) {
-      const res = exception.getResponse();
-      response = {
-        status: exception.getStatus(),
-        message: exception.message,
-        code: isObject(res) ? (res as any).error : exception.name,
-      };
-    } else if (exception instanceof ResponseException) {
-      response = {
-        status: exception.status,
-        message: exception.message,
-        code: exception.code,
-        timestamp: exception.timestamp,
-      };
-    } else if (exception instanceof Error) {
-      response = {
-        status: HttpStatus.INTERNAL_SERVER_ERROR,
-        message: exception.message,
-        code: exception.name,
-      };
-    } else {
-      response = {
-        status: HttpStatus.INTERNAL_SERVER_ERROR,
-        message: exception,
-      };
-    }
-
-    return response;
   }
 }

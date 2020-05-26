@@ -1,6 +1,7 @@
 export interface ServerOptions {
   port: number;
   logger?: boolean;
+  graphql?: boolean;
   stack?: boolean;
   https?: ServerHttpsOptions;
 }

@@ -12,6 +12,7 @@ import { Logger } from '@micro/logger';
 
 import { ServerOptions } from './core';
 import { HttpExceptionFilter } from './filters/http-exception.filter';
+import { GraphQlExceptionFilter } from './filters/graphql-exception.filter';
 
 const readCert = (cert: string): Buffer =>
   fs.readFileSync(path.join(process.cwd(), cert));
@@ -34,6 +35,7 @@ export class Server {
       {
         port: 3000,
         logger: true,
+        graphql: false,
         stack: true,
       } as ServerOptions,
       options
@@ -82,7 +84,9 @@ export class Server {
       this.app.register(...p);
     });
 
-    this.app.useGlobalFilters(new HttpExceptionFilter());
+    if (this.options.graphql)
+      this.app.useGlobalFilters(new GraphQlExceptionFilter());
+    else this.app.useGlobalFilters(new HttpExceptionFilter());
   }
 
   public register(...args: any[]): void {

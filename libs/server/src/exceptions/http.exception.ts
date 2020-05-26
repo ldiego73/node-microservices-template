@@ -1,13 +1,5 @@
 import { HttpStatus } from '@nestjs/common';
 
-export interface Exception {
-  status: number;
-  message: string;
-  code?: string;
-  timestamp?: string;
-  path?: string;
-}
-
 export abstract class ResponseException {
   status: number;
   code: string;
