@@ -1,7 +1,7 @@
 {
   "name": "@micro/kernel",
   "version": "1.0.0",
-  "description": "Micro kernel for Microservices using DDD",
+  "description": "Micro server for Microservices using NestJS",
   "author": {
     "name": "Luis Diego",
     "email": "lfdiego7@gmail.com",
