@@ -137,7 +137,7 @@ export function array<T>(fn: Validator<T>): Validator<Array<T>> {
     for (const item of value) {
       const result = fn(item);
       if (!result.success) {
-        return fail(result.message!);
+        return fail(result.message ?? '');
       }
     }
     return ok();
@@ -236,8 +236,8 @@ export function validateBulk<T extends object>(
   if (!isObjectWithItems(values))
     return { success: false, messages: ['values is not object'] };
 
-  let success: boolean = false;
-  let messages: string[] = [];
+  const messages: string[] = [];
+  let success = false;
 
   for (const key in schema) {
     const result = schema[key](values[key]);
@@ -259,8 +259,8 @@ export function validateMapBulk<T>(
   if (!isObjectWithItems(values))
     return { success: false, messages: ['values is not object'] };
 
-  let success: boolean = false;
-  let messages: string[] = [];
+  const messages: string[] = [];
+  let success = false;
 
   for (const key in values) {
     const result = fn(values[key]);
