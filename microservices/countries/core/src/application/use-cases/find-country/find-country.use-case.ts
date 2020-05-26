@@ -4,10 +4,10 @@ import {
   Transform,
 } from '@micro/kernel/lib/application';
 import { Either, Result } from '@micro/kernel/lib/result';
-import { CountryRepository, Iso, Country } from '@domain/index';
-import { IsoInvalidError } from '@domain/errors';
-import { IsoDto, CountryDto } from '@application/dtos/index';
-import { CountryTransform } from '@application/transforms/index';
+import { CountryRepository, Iso, Country } from '../../../domain';
+import { IsoInvalidError } from '../../../domain/errors';
+import { IsoDto, CountryDto } from '../../dtos';
+import { CountryTransform } from '../../transforms';
 import { FindCountryError } from './find-country.error';
 
 type Response = Either<

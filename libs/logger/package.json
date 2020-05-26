@@ -15,8 +15,8 @@
   "scripts": {
     "clean": "rimraf reports lib",
     "prebuild": "yarn clean",
-    "build:node": "webpack --config config/webpack.config.js",
-    "build:browser": "webpack --config config/webpack.browser.config.js",
+    "build:node": "webpack --config config/webpack.config.js --silent",
+    "build:browser": "webpack --config config/webpack.browser.config.js --silent",
     "build": "yarn build:node && yarn build:browser",
     "test": "jest --passWithNoTests"
   },

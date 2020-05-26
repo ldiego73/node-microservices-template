@@ -4,9 +4,9 @@ import {
   Transform,
 } from '@micro/kernel/lib/application';
 import { Either, Result } from '@micro/kernel/lib/result';
-import { CountryRepository, Country } from '@domain/index';
-import { IsoDto, CountryDto } from '@application/dtos/index';
-import { CountryTransform } from '@application/transforms/index';
+import { CountryRepository, Country } from '../../../domain';
+import { IsoDto, CountryDto } from '../../dtos';
+import { CountryTransform } from '../../transforms';
 
 type Response<T> = Either<UseCaseUnexpectedError, T>;
 

@@ -1,5 +1,4 @@
 import { program } from 'commander';
-import pkg from '../package.json';
 import {
   listCommand,
   findCommand,
@@ -9,7 +8,6 @@ import {
 } from './commands';
 
 program
-  .version(pkg.version)
   .description('Country Console Interface')
   .addCommand(listCommand)
   .addCommand(findCommand)

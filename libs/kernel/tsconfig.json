@@ -7,6 +7,10 @@
     "strict": true,
     "esModuleInterop": true,
     "noImplicitAny": true,
+    "resolveJsonModule": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": true,
     "outDir": "lib"
   },
   "include": ["src/**/*"],

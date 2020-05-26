@@ -2062,9 +2062,10 @@
   dependencies:
     "@babel/types" "^7.3.0"
 
-"@types/bluebird@^3.5.30":
+"@types/bluebird@^3.5.32":
   version "3.5.32"
   resolved "https://registry.yarnpkg.com/@types/bluebird/-/bluebird-3.5.32.tgz#381e7b59e39f010d20bbf7e044e48f5caf1ab620"
+  integrity sha512-dIOxFfI0C+jz89g6lQ+TqhGgPQ0MxSnh/E4xuC0blhFtyW269+mPG5QeLgbdwst/LvdP8o1y0o/Gz5EHXLec/g==
 
 "@types/body-parser@*":
   version "1.19.0"
@@ -2259,7 +2260,7 @@
   version "13.13.9"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-13.13.9.tgz#79df4ae965fb76d31943b54a6419599307a21394"
 
-"@types/node@^14.0.1":
+"@types/node@^14.0.1", "@types/node@^14.0.5":
   version "14.0.5"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.5.tgz#3d03acd3b3414cf67faf999aed11682ed121f22b"
 
@@ -8794,7 +8795,7 @@ resolve-url@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/resolve-url/-/resolve-url-0.2.1.tgz#2c637fe77c893afd2a663fe21aa9080068e2052a"
 
-resolve@^1.1.6, resolve@^1.10.0, resolve@^1.17.0, resolve@^1.3.2, resolve@^1.9.0:
+resolve@^1.1.6, resolve@^1.10.0, resolve@^1.17.0, resolve@^1.3.2:
   version "1.17.0"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.17.0.tgz#b25941b54968231cc2d1bb76a79cb7f2c0bf8444"
   dependencies:
@@ -8984,9 +8985,10 @@ sequelize-pool@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/sequelize-pool/-/sequelize-pool-2.3.0.tgz#64f1fe8744228172c474f530604b6133be64993d"
 
-sequelize@^5.21.8:
+sequelize@^5.21.10:
   version "5.21.10"
   resolved "https://registry.yarnpkg.com/sequelize/-/sequelize-5.21.10.tgz#a7ddc5f7fa7c12db6fb24a92c9210b52fc1a59d5"
+  integrity sha512-qni5lKIa4wBdbi3KQYj20R5TC0/a88qi/1XhGDzDvTaWxhx4gEpLr6aGwvfbvVD7XCilvOgjoBkBB0fLVpwNsw==
   dependencies:
     bluebird "^3.5.0"
     cls-bluebird "^2.1.0"
@@ -9903,12 +9905,6 @@ tty-browserify@0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/tty-browserify/-/tty-browserify-0.0.0.tgz#a157ba402da24e9bf957f9aa69d524eed42901a6"
 
-ttypescript@^1.5.10:
-  version "1.5.10"
-  resolved "https://registry.yarnpkg.com/ttypescript/-/ttypescript-1.5.10.tgz#5045083a91cf09a735ecc95d4711c1f3b83f2059"
-  dependencies:
-    resolve "^1.9.0"
-
 tunnel-agent@^0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/tunnel-agent/-/tunnel-agent-0.6.0.tgz#27a5dea06b36b04a0a9966774b290868f0fc40fd"
@@ -9966,12 +9962,6 @@ typedarray-to-buffer@^3.1.5:
 typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
-
-typescript-transform-paths@^1.1.14:
-  version "1.1.14"
-  resolved "https://registry.yarnpkg.com/typescript-transform-paths/-/typescript-transform-paths-1.1.14.tgz#4a3800a04977a527270980488f9c93055a31e474"
-  dependencies:
-    slash "^3.0.0"
 
 typescript@^3.6.4, typescript@^3.8.3, typescript@^3.9.3, typescript@~3.9.2:
   version "3.9.3"

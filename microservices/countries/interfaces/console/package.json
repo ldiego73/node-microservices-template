@@ -8,16 +8,16 @@
     "url": "http://github.com/ldiego73"
   },
   "license": "MIT",
-  "main": "lib/console.js",
-  "types": "lib/console.d.ts",
+  "main": "lib/main.js",
+  "types": "lib/main.d.ts",
   "files": [
     "lib/"
   ],
   "scripts": {
     "clean": "rimraf lib",
-    "develop": "ts-node src/console.ts",
+    "develop": "ts-node src/main.ts",
     "prebuild": "yarn clean",
-    "build": "webpack"
+    "build": "tsc"
   },
   "dependencies": {
     "@micro/countries-core": "^1.0.0",
@@ -26,15 +26,10 @@
     "prompts": "^2.3.2"
   },
   "devDependencies": {
-    "@types/node": "^14.0.1",
+    "@types/node": "^14.0.5",
     "@types/prompts": "^2.0.8",
-    "glob": "^7.1.6",
     "rimraf": "^3.0.2",
-    "ts-loader": "^7.0.4",
     "ts-node": "^8.10.1",
-    "typescript": "^3.8.3",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11",
-    "webpack-node-externals": "^1.7.2"
+    "typescript": "^3.9.3"
   }
 }

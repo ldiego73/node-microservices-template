@@ -1,8 +1,8 @@
 import { UseCase, UseCaseUnexpectedError } from '@micro/kernel/lib/application';
 import { Either, Result } from '@micro/kernel/lib/result';
-import { CountryRepository, Iso } from '@domain/index';
-import { IsoInvalidError } from '@domain/errors/index';
-import { IsoDto } from '@application/dtos/index';
+import { CountryRepository, Iso } from '../../../domain';
+import { IsoInvalidError } from '../../../domain/errors';
+import { IsoDto } from '../../dtos';
 
 type Response<T> = Either<IsoInvalidError | UseCaseUnexpectedError, T>;
 

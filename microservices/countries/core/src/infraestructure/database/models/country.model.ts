@@ -1,6 +1,6 @@
 import { Model, DataTypes } from 'sequelize';
-import { db } from '@infraestructure/database/index';
 import { Logger } from '@micro/logger';
+import { db } from '../index';
 
 const l = Logger.create('CountryModel');
 const TABLE_NAME = 'countries';

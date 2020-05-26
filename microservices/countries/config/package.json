@@ -16,19 +16,15 @@
   "scripts": {
     "clean": "rimraf lib",
     "prebuild": "yarn clean",
-    "build": "webpack"
+    "build": "tsc"
   },
   "dependencies": {
     "dotenv": "^8.2.0"
   },
   "devDependencies": {
-    "@types/node": "^14.0.1",
+    "@types/node": "^14.0.5",
     "glob": "^7.1.6",
     "rimraf": "^3.0.2",
-    "ts-loader": "^7.0.4",
-    "typescript": "^3.8.3",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11",
-    "webpack-node-externals": "^1.7.2"
+    "typescript": "^3.9.3"
   }
 }

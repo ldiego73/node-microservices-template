@@ -1,6 +1,6 @@
 import { Transform } from '@micro/kernel/lib/application/transform';
-import { Country } from '@domain/index';
-import { CountryDto } from '@application/dtos/index';
+import { Country } from '../../domain';
+import { CountryDto } from '../dtos';
 
 export class CountryTransform implements Transform<Country, CountryDto> {
   toDto(country: Country): CountryDto {
