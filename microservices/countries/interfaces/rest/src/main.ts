@@ -28,7 +28,6 @@ async function bootstrap() {
   app.register(cors);
   app.register(compression, { encodings: ['gzip', 'deflate'] });
   app.register(rateLimit, { max: 100, timeWindow: '1 minute' });
-  app.useGlobalFilters(new HttpExceptionFilter());
 
   await app.listen(env.server.port);
 

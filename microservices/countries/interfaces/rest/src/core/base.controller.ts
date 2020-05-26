@@ -3,6 +3,7 @@ import { ServerResponse } from 'http';
 import { Logger } from '@micro/logger';
 import { isString } from '@micro/utils';
 import { ErrorResponse } from './error.response';
+import { BadGatewayException, UnprocessableEntityException } from '@nestjs/common';
 
 export abstract class BaseController {
   protected log: Logger;
