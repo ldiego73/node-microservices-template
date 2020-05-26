@@ -2,9 +2,6 @@ import {
   Controller,
   Get,
   Param,
-  BadRequestException,
-  NotFoundException,
-  InternalServerErrorException,
 } from '@nestjs/common';
 import { BaseController } from '@micro/server';
 import { IsoInvalidError } from '@micro/countries-core/lib/domain';

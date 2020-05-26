@@ -1,11 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { ListCountryUseCase, listCountryUseCase } from '@micro/countries-core/lib/application/use-cases';
+import { BaseService } from '@micro/server';
 
 @Injectable()
-export class ListService {
+export class ListService extends BaseService{
   private readonly useCase: ListCountryUseCase;
 
   constructor() {
+    super();
     this.useCase = listCountryUseCase;
   }
 

@@ -4,12 +4,14 @@ import {
   deleteCountryUseCase,
 } from '@micro/countries-core/lib/application/use-cases';
 import { IsoDto } from '@micro/countries-core/lib/application/dtos';
+import { BaseService } from '@micro/server';
 
 @Injectable()
-export class DeleteService {
+export class DeleteService extends BaseService{
   private readonly useCase: DeleteCountryUseCase;
 
   constructor() {
+    super();
     this.useCase = deleteCountryUseCase;
   }
 
