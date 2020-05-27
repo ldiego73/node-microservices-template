@@ -1,11 +1,11 @@
 import { DomainError } from '@micro/kernel/lib/domain';
 
 export class CountryAlreadyExistsError extends DomainError {
-  public constructor(iso: string, error: any) {
+  public constructor(iso: string, error: unknown) {
     super(`The country ${iso} associated already exists`, error);
   }
 
-  public static create(iso: string, error: any): CountryAlreadyExistsError {
+  public static create(iso: string, error: unknown): CountryAlreadyExistsError {
     return new CountryAlreadyExistsError(iso, error);
   }
 }

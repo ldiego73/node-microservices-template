@@ -1,3 +1,5 @@
+/* eslint @typescript-eslint/explicit-module-boundary-types:0 */
+
 import { Mapper } from '@micro/kernel/lib/infraestructure/mapper';
 import { UniqueEntityId } from '@micro/kernel';
 import { Country, Iso } from '../../domain';

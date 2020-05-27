@@ -14,7 +14,7 @@ export class CountryRepositoryImpl implements CountryRepository {
   async findAll(): Promise<Country[]> {
     const data = await CountryModel.findAll();
 
-    return data.map(r => this.mapper.toDomain(r));
+    return data.map((r) => this.mapper.toDomain(r));
   }
 
   async findByIso(iso: string): Promise<Country> {

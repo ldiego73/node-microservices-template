@@ -13,6 +13,6 @@ export class CountryTransform implements Transform<Country, CountryDto> {
   }
 
   toCollection(country: Country[]): CountryDto[] {
-    return country.map(c => this.toDto(c));
+    return country.map((c) => this.toDto(c));
   }
 }

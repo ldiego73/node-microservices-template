@@ -1,8 +1,6 @@
 import { Model, DataTypes } from 'sequelize';
-import { Logger } from '@micro/logger';
 import { db } from '../index';
 
-const l = Logger.create('CountryModel');
 const TABLE_NAME = 'countries';
 
 export class CountryModel extends Model {
@@ -46,4 +44,4 @@ CountryModel.init(
   }
 );
 
-CountryModel.sync().then(() => {});
+CountryModel.sync();

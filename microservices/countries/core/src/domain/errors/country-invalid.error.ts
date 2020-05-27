@@ -5,7 +5,7 @@ export class CountryInvalidError extends DomainError {
     super(`The Country is invalid => ${field}`);
   }
 
-  public static create(field: string) {
+  public static create(field: string): CountryInvalidError {
     return new CountryInvalidError(field);
   }
 }
