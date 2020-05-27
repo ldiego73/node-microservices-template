@@ -33,21 +33,21 @@ export abstract class Base {
     this.throwException(new ForbiddenResponseException(message, code));
   }
 
-  protected notFound(message: string, code?: string) {
+  protected notFound(message: string, code?: string): void {
     this.throwException(new NotFoundResponseException(message, code));
   }
 
-  protected conflict(message: string, code?: string) {
+  protected conflict(message: string, code?: string): void {
     this.throwException(new ConflictResponseException(message, code));
   }
 
-  protected unprocessableEntity(message: string, code?: string) {
+  protected unprocessableEntity(message: string, code?: string): void {
     this.throwException(
       new UnprocessableEntityResponseException(message, code)
     );
   }
 
-  protected fail(message: string, code?: string) {
+  protected fail(message: string, code?: string): void {
     this.throwException(new FailResponseException(message, code));
   }
 }

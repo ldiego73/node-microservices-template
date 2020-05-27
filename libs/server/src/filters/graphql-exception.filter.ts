@@ -5,8 +5,8 @@ import {
   GqlContextType,
 } from '@nestjs/graphql';
 import { GraphQLResolveInfo } from 'graphql';
-import { BaseExceptionFilter } from './base.exception.filter';
-import { GraphqlResponseException, Exception } from '../exceptions';
+import { BaseExceptionFilter, Response } from './base.exception.filter';
+import { GraphqlException } from '../exceptions';
 
 @Catch()
 export class GraphQlExceptionFilter extends BaseExceptionFilter
@@ -15,7 +15,7 @@ export class GraphQlExceptionFilter extends BaseExceptionFilter
     super();
   }
 
-  catch(exception: any, host: ArgumentsHost) {
+  catch(exception: Response, host: ArgumentsHost): any {
     const gqlHost = GqlArgumentsHost.create(host);
     const ctx = gqlHost.getType<GqlContextType>();
 
@@ -27,7 +27,7 @@ export class GraphQlExceptionFilter extends BaseExceptionFilter
       const path = `${parentType} => ${fieldName}`;
       const result = this.createException(exception, path);
 
-      return GraphqlResponseException.create(result);
+      return GraphqlException.create(result);
     }
 
     return exception;

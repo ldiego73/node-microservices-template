@@ -2,7 +2,7 @@ import { ExceptionFilter, Catch, ArgumentsHost } from '@nestjs/common';
 import { FastifyRequest, FastifyReply } from 'fastify';
 import { ServerResponse } from 'http';
 
-import { BaseExceptionFilter } from './base.exception.filter';
+import { BaseExceptionFilter, Response } from './base.exception.filter';
 
 @Catch()
 export class HttpExceptionFilter extends BaseExceptionFilter
@@ -11,7 +11,7 @@ export class HttpExceptionFilter extends BaseExceptionFilter
     super();
   }
 
-  catch(exception: any, host: ArgumentsHost): void {
+  catch(exception: Response, host: ArgumentsHost): void {
     const ctx = host.switchToHttp();
     const req = ctx.getRequest<FastifyRequest>();
     const res = ctx.getResponse<FastifyReply<ServerResponse>>();
