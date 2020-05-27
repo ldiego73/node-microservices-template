@@ -19,13 +19,13 @@ export class UpdateResolver extends BaseResolver {
     } catch (err) {
       switch (err.constructor) {
         case IsoInvalidError:
-          this.bad(err.message);
+          this.bad(err.message, err.code);
           break;
         case CountryNotExistsError:
-          this.notFound(err.message);
+          this.notFound(err.message, err.code);
           break;
         case UseCaseUnexpectedError:
-          this.fail(err.message);
+          this.fail(err.message, err.code);
           break;
         default:
           throw err;

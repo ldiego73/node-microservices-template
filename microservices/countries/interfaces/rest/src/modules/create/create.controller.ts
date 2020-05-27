@@ -23,16 +23,16 @@ export class CreateController extends BaseController {
     } catch (err) {
       switch (err.constructor) {
         case IsoInvalidError:
-          this.bad(err.message);
+          this.bad(err.message, err.code);
           break;
         case CountryInvalidError:
-          this.bad(err.message);
+          this.bad(err.message, err.code);
           break;
         case CountryAlreadyExistsError:
-          this.conflict(err.message);
+          this.conflict(err.message, err.code);
           break;
         case UseCaseUnexpectedError:
-          this.fail(err.message);
+          this.fail(err.message, err.code);
           break;
         default:
           throw err;

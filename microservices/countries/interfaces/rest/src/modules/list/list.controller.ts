@@ -16,7 +16,7 @@ export class ListController extends BaseController {
     } catch (err) {
       switch (err.constructor) {
         case UseCaseUnexpectedError:
-          this.fail(err.message);
+          this.fail(err.message, err.code);
           break;
         default:
           throw err;

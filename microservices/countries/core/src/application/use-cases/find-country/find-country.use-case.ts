@@ -8,10 +8,10 @@ import { CountryRepository, Iso, Country } from '../../../domain';
 import { IsoInvalidError } from '../../../domain/errors';
 import { IsoDto, CountryDto } from '../../dtos';
 import { CountryTransform } from '../../transforms';
-import { FindCountryError } from './find-country.error';
+import { CountryNotFoundError } from './country-not-found.error';
 
 type Response = Either<
-  IsoInvalidError | FindCountryError | UseCaseUnexpectedError,
+  IsoInvalidError | CountryNotFoundError | UseCaseUnexpectedError,
   CountryDto
 >;
 
@@ -37,7 +37,7 @@ export class FindCountryUseCase implements UseCase<IsoDto, Response> {
       const country = await this.repository.findByIso(iso.value);
 
       if (iso.value !== country.iso) {
-        return Result.fail(FindCountryError.create(iso.value));
+        return Result.fail(CountryNotFoundError.create(iso.value));
       }
 
       return Result.ok(this.transform.toDto(country));

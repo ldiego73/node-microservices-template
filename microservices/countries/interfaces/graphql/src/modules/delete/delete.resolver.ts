@@ -17,10 +17,10 @@ export class DeleteResolver extends BaseResolver{
     } catch (err) {
       switch (err.constructor) {
         case IsoInvalidError:
-          this.bad(err.message);
+          this.bad(err.message, err.code);
           break;
         case UseCaseUnexpectedError:
-          this.fail(err.message);
+          this.fail(err.message, err.code);
           break;
         default:
           throw err;

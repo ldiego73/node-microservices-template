@@ -2,7 +2,7 @@ import { Args, Query, Resolver } from '@nestjs/graphql';
 import { CountrySchema } from '../../models/country.model';
 import { BaseResolver } from '@micro/server';
 import { IsoInvalidError } from '@micro/countries-core/lib/domain';
-import { FindCountryError } from '@micro/countries-core/lib/application/use-cases';
+import { CountryNotFoundError } from '@micro/countries-core/lib/application/use-cases';
 import { UseCaseUnexpectedError } from '@micro/kernel/lib/application';
 import { FindService } from './find.service';
 @Resolver()
@@ -18,13 +18,13 @@ export class FindResolver extends BaseResolver {
     } catch (err) {
       switch (err.constructor) {
         case IsoInvalidError:
-          this.bad(err.message);
+          this.bad(err.message, err.code);
           break;
-        case FindCountryError:
-          this.notFound(err.message);
+        case CountryNotFoundError:
+          this.notFound(err.message, err.code);
           break;
         case UseCaseUnexpectedError:
-          this.fail(err.message);
+          this.fail(err.message, err.code);
         default:
           throw err;
       }
