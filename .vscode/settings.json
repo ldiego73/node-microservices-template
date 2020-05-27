@@ -1,3 +1,24 @@
 {
-    "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "eslint.workingDirectories": [
+    { "directory": "libs/kernel", "changeProcessCWD": true },
+    { "directory": "libs/logger", "changeProcessCWD": true },
+    { "directory": "libs/server", "changeProcessCWD": true },
+    { "directory": "libs/utils", "changeProcessCWD": true },
+    { "directory": "microservices/countries/app", "changeProcessCWD": true },
+    { "directory": "microservices/countries/config", "changeProcessCWD": true },
+    { "directory": "microservices/countries/core", "changeProcessCWD": true },
+    {
+      "directory": "microservices/countries/interfaces/console",
+      "changeProcessCWD": true
+    },
+    {
+      "directory": "microservices/countries/interfaces/graphql",
+      "changeProcessCWD": true
+    },
+    {
+      "directory": "microservices/countries/interfaces/rest",
+      "changeProcessCWD": true
+    }
+  ]
 }
