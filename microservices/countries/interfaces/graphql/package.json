@@ -8,8 +8,8 @@
     "url": "http://github.com/ldiego73"
   },
   "license": "MIT",
-  "main": "lib/main.js",
-  "types": "lib/main.d.ts",
+  "main": "lib/app.js",
+  "types": "lib/app.d.ts",
   "files": [
     "lib/"
   ],
@@ -23,6 +23,7 @@
   "dependencies": {
     "@micro/countries-config": "^1.0.0",
     "@micro/countries-core": "^1.0.0",
+    "@micro/kernel": "^1.0.0",
     "@micro/logger": "^1.0.0",
     "@micro/server": "^1.0.0",
     "fastify-cors": "^3.0.3",
