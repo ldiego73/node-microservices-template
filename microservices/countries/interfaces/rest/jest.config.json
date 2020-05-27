@@ -1,0 +1,19 @@
+{
+  "transform": {
+    "^.+\\.ts?$": "ts-jest"
+  },
+  "testRegex": ".spec.ts$",
+  "testEnvironment": "node",
+  "moduleFileExtensions": [
+    "ts",
+    "js",
+    "json"
+  ],
+  "collectCoverage": true,
+  "coverageReporters": [
+    "json",
+    "text",
+    "html"
+  ],
+  "coverageDirectory": "reports"
+}
