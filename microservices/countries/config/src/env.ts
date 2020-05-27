@@ -23,7 +23,7 @@ export interface CountryEnv {
   production: boolean;
 }
 
-export const readEnv = (name: string = '.env'): CountryEnv => {
+export const readEnv = (name = '.env'): CountryEnv => {
   const path = resolve(process.cwd(), name);
 
   config({ path });
