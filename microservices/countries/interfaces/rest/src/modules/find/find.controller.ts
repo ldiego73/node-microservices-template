@@ -1,8 +1,4 @@
-import {
-  Controller,
-  Get,
-  Param,
-} from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { BaseController } from '@micro/server';
 import { IsoInvalidError } from '@micro/countries-core/lib/domain';
 import { CountryNotFoundError } from '@micro/countries-core/lib/application/use-cases';

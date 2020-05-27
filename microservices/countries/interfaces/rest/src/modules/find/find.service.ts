@@ -7,7 +7,7 @@ import { IsoDto } from '@micro/countries-core/lib/application/dtos';
 import { BaseService } from '@micro/server';
 
 @Injectable()
-export class FindService extends BaseService{
+export class FindService extends BaseService {
   private readonly useCase: FindCountryUseCase;
 
   constructor() {

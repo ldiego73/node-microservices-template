@@ -7,7 +7,7 @@ import { CountryDto } from '@micro/countries-core/lib/application/dtos';
 import { BaseService } from '@micro/server';
 
 @Injectable()
-export class CreateService extends BaseService{
+export class CreateService extends BaseService {
   private readonly useCase: CreateCountryUseCase;
 
   constructor() {

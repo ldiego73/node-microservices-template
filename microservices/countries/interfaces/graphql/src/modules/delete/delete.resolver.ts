@@ -5,23 +5,22 @@ import { UseCaseUnexpectedError } from '@micro/kernel/lib/application';
 import { DeleteService } from './delete.service';
 
 @Resolver()
-export class DeleteResolver extends BaseResolver{
+export class DeleteResolver extends BaseResolver {
   constructor(private readonly service: DeleteService) {
     super();
   }
 
-  @Mutation(returns => Boolean)
-  async delete(@Args('iso') iso: string) {
+  // eslint-disable-next-line
+  @Mutation((returns) => Boolean)
+  async delete(@Args('iso') iso: string): Promise<void> {
     try {
       return await this.service.execute(iso);
     } catch (err) {
       switch (err.constructor) {
         case IsoInvalidError:
           this.bad(err.message, err.code);
-          break;
         case UseCaseUnexpectedError:
           this.fail(err.message, err.code);
-          break;
         default:
           throw err;
       }

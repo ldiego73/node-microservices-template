@@ -15,24 +15,21 @@ export class CreateResolver extends BaseResolver {
     super();
   }
 
-  @Mutation(returns => Boolean)
-  async create(@Args('input') input: CountrySchemaInput) {
+  // eslint-disable-next-line
+  @Mutation((returns) => Boolean)
+  async create(@Args('input') input: CountrySchemaInput): Promise<void> {
     try {
       return await this.service.execute(input);
     } catch (err) {
       switch (err.constructor) {
         case IsoInvalidError:
           this.bad(err.message, err.code);
-          break;
         case CountryInvalidError:
           this.bad(err.message, err.code);
-          break;
         case CountryAlreadyExistsError:
           this.conflict(err.message, err.code);
-          break;
         case UseCaseUnexpectedError:
           this.fail(err.message, err.code);
-          break;
         default:
           throw err;
       }

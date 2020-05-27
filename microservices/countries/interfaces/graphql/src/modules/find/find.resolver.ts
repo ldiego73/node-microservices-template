@@ -11,18 +11,17 @@ export class FindResolver extends BaseResolver {
     super();
   }
 
-  @Query(returns => CountrySchema)
-  async country(@Args('iso') iso: string) {
+  // eslint-disable-next-line
+  @Query((returns) => CountrySchema)
+  async country(@Args('iso') iso: string): Promise<void> {
     try {
       return await this.service.execute(iso);
     } catch (err) {
       switch (err.constructor) {
         case IsoInvalidError:
           this.bad(err.message, err.code);
-          break;
         case CountryNotFoundError:
           this.notFound(err.message, err.code);
-          break;
         case UseCaseUnexpectedError:
           this.fail(err.message, err.code);
         default:

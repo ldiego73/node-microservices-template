@@ -1,3 +1,5 @@
+/* eslint @typescript-eslint/no-non-null-assertion:0 */
+
 import { MicroApplication } from '@micro/kernel';
 import cors from 'fastify-cors';
 import rateLimit from 'fastify-rate-limit';

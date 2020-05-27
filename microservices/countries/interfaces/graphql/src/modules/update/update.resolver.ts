@@ -12,8 +12,9 @@ export class UpdateResolver extends BaseResolver {
     super();
   }
 
-  @Mutation(returns => Boolean)
-  async update(@Args('input') input: CountrySchemaInput) {
+  // eslint-disable-next-line
+  @Mutation((returns) => Boolean)
+  async update(@Args('input') input: CountrySchemaInput): Promise<void> {
     try {
       return await this.service.execute(input);
     } catch (err) {

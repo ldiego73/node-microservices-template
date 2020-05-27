@@ -10,17 +10,16 @@ export class ListResolver extends BaseResolver {
     super();
   }
 
-  @Query(returns => [CountrySchema])
-  async countries() {
+  // eslint-disable-next-line
+  @Query((returns) => [CountrySchema])
+  async countries(): Promise<void> {
     try {
       return await this.service.execute();
     } catch (err) {
-      switch (err.constructor) {
-        case UseCaseUnexpectedError:
-          this.fail(err.message, err.code);
-          break;
-        default:
-          throw err;
+      if (err.constructor === UseCaseUnexpectedError) {
+        this.fail(err.message, err.code);
+      } else {
+        throw err;
       }
     }
   }
