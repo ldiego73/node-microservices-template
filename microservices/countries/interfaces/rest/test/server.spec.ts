@@ -6,7 +6,7 @@ import request from 'supertest';
 
 import { AppModule } from '../src/modules/app.module';
 
-describe('Country GraphQL Server', () => {
+describe('Country Rest Server', () => {
   let server: any;
   let app: INestApplication;
 
