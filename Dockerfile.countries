@@ -1,0 +1,68 @@
+FROM node:alpine AS build
+
+RUN apk update
+RUN apk --no-cache add g++ gcc libgcc libstdc++ linux-headers make python sqlite
+
+WORKDIR /build
+ADD . /build
+
+RUN yarn install
+
+# Libraries
+RUN cd /build/libs/kernel && yarn build
+RUN cd /build/libs/logger && yarn build
+RUN cd /build/libs/utils && yarn build
+RUN cd /build/libs/server && yarn build
+
+# Microservice countries
+RUN cd /build/microservices/countries/config && yarn build
+RUN cd /build/microservices/countries/core && yarn build
+RUN cd /build/microservices/countries/interfaces/console && yarn build
+RUN cd /build/microservices/countries/interfaces/graphql && yarn build
+RUN cd /build/microservices/countries/interfaces/rest && yarn build
+
+# Application
+RUN cd /build/microservices/countries/app && yarn build
+
+FROM node:alpine
+
+RUN apk update
+RUN apk --no-cache add g++ gcc libgcc libstdc++ linux-headers make python sqlite
+
+WORKDIR /app
+
+# Base
+COPY --from=build /build/package.json /app/package.json
+COPY --from=build /build/lerna.json /app/lerna.json
+
+# Libraries
+COPY --from=build /build/libs/kernel/lib /app/libs/kernel/lib
+COPY --from=build /build/libs/kernel/package.json /app/libs/kernel/package.json
+COPY --from=build /build/libs/logger/lib /app/libs/logger/lib
+COPY --from=build /build/libs/logger/package.json /app/libs/logger/package.json
+COPY --from=build /build/libs/utils/lib /app/libs/utils/lib
+COPY --from=build /build/libs/utils/package.json /app/libs/utils/package.json
+COPY --from=build /build/libs/server/lib /app/libs/server/lib
+COPY --from=build /build/libs/server/package.json /app/libs/server/package.json
+
+# Microservice countries
+COPY --from=build /build/microservices/countries/config/lib /app/microservices/countries/config/lib
+COPY --from=build /build/microservices/countries/config/package.json /app/microservices/countries/config/package.json
+COPY --from=build /build/microservices/countries/core/lib /app/microservices/countries/core/lib
+COPY --from=build /build/microservices/countries/core/package.json /app/microservices/countries/core/package.json
+COPY --from=build /build/microservices/countries/interfaces/console/lib /app/microservices/countries/interfaces/console/lib
+COPY --from=build /build/microservices/countries/interfaces/console/package.json /app/microservices/countries/interfaces/console/package.json
+COPY --from=build /build/microservices/countries/interfaces/graphql/lib /app/microservices/countries/interfaces/graphql/lib
+COPY --from=build /build/microservices/countries/interfaces/graphql/package.json /app/microservices/countries/interfaces/graphql/package.json
+COPY --from=build /build/microservices/countries/interfaces/rest/lib /app/microservices/countries/interfaces/rest/lib
+COPY --from=build /build/microservices/countries/interfaces/rest/package.json /app/microservices/countries/interfaces/rest/package.json
+
+# Application
+COPY --from=build /build/microservices/countries/app/dist /app/microservices/countries/app/dist
+COPY --from=build /build/microservices/countries/app/cert /app/microservices/countries/app/cert
+COPY --from=build /build/microservices/countries/app/package.json /app/microservices/countries/app/package.json
+COPY --from=build /build/microservices/countries/app/.env /app/microservices/countries/app/.env
+
+RUN yarn install --production
+
+CMD [ "node", "/app/microservices/countries/app/dist" ]

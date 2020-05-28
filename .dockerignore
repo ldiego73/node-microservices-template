@@ -1,0 +1,18 @@
+# Directories
+.vscode/
+.cache/
+node_modules/
+public/
+reports/
+tmp/
+lib/
+dist/
+
+# Logs
+*.log
+
+# Generated files
+.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
