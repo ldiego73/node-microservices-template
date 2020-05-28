@@ -61,7 +61,8 @@ COPY --from=build /build/microservices/countries/interfaces/rest/package.json /a
 COPY --from=build /build/microservices/countries/app/dist /app/microservices/countries/app/dist
 COPY --from=build /build/microservices/countries/app/cert /app/microservices/countries/app/cert
 COPY --from=build /build/microservices/countries/app/package.json /app/microservices/countries/app/package.json
-COPY --from=build /build/microservices/countries/app/.env /app/microservices/countries/app/.env
+COPY --from=build /build/microservices/countries/app/cert /app/cert
+COPY --from=build /build/microservices/countries/app/.env /app/.env
 
 RUN yarn install --production
 

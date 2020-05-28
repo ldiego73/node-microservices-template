@@ -5,6 +5,6 @@ import { CountryConsoleApplication } from '@micro/countries-console';
 import { CountryGraphqlApplication } from '@micro/countries-graphql';
 import { CountryRestApplication } from '@micro/countries-rest';
 
-const app: MicroApplication = new CountryConsoleApplication();
+const app: MicroApplication = new CountryRestApplication();
 
 app.start();
