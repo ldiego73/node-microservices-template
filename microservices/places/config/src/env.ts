@@ -1,47 +1,33 @@
 import { resolve } from 'path';
 import { config } from 'dotenv';
 
-export interface CountryDbEnv {
-  name: string;
-  type: string;
-  storage: string;
-}
-
-export interface CountryHttps {
+export interface GeocodeHttps {
   key: string;
   cert: string;
 }
 
-export interface CountryServerEnv {
+export interface GeocodeServerEnv {
   port: number;
-  https?: CountryHttps;
+  https?: GeocodeHttps;
 }
 
-export interface CountryEnv {
-  db: CountryDbEnv;
-  server: CountryServerEnv;
+export interface GeocodeEnv {
+  apiKey: string;
+  server: GeocodeServerEnv;
   production: boolean;
 }
 
-export const readEnv = (name = '.env'): CountryEnv => {
+export const readEnv = (name = '.env'): GeocodeEnv => {
   const path = resolve(process.cwd(), name);
 
   config({ path });
-
-  if (!process.env.DB_NAME || !process.env.DB_TYPE || !process.env.DB_STORAGE) {
-    throw new Error('Unable to retrieve environment variables from database');
-  }
 
   if (!process.env.SERVER_PORT) {
     throw new Error('Unable to retrieve environment variable from server port');
   }
 
-  const env: CountryEnv = {
-    db: {
-      name: process.env.DB_NAME,
-      type: process.env.DB_TYPE,
-      storage: process.env.DB_STORAGE,
-    },
+  const env: GeocodeEnv = {
+    apiKey: process.env.API_KEY as string,
     server: {
       port: Number(process.env.SERVER_PORT),
     },

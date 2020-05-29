@@ -19,6 +19,21 @@
     {
       "directory": "microservices/countries/interfaces/rest",
       "changeProcessCWD": true
-    }
+    },
+    { "directory": "microservices/places/app", "changeProcessCWD": true },
+    { "directory": "microservices/places/config", "changeProcessCWD": true },
+    { "directory": "microservices/places/core", "changeProcessCWD": true },
+    {
+      "directory": "microservices/places/interfaces/console",
+      "changeProcessCWD": true
+    },
+    {
+      "directory": "microservices/places/interfaces/graphql",
+      "changeProcessCWD": true
+    },
+    {
+      "directory": "microservices/places/interfaces/rest",
+      "changeProcessCWD": true
+    },
   ]
 }
