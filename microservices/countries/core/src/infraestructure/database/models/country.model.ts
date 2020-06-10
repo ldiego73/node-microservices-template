@@ -1,7 +1,8 @@
-import { Model, DataTypes } from 'sequelize';
-import { db } from '../index';
+import { DataTypes,Model } from "sequelize";
 
-const TABLE_NAME = 'countries';
+import { db } from "../index";
+
+const TABLE_NAME = "countries";
 
 export class CountryModel extends Model {
   public id!: string;

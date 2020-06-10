@@ -1,5 +1,5 @@
-import { Sequelize, Dialect } from 'sequelize';
-import { readEnv } from '@micro/countries-config';
+import { readEnv } from "@micro/countries-config";
+import { Dialect,Sequelize } from "sequelize";
 
 const env = readEnv();
 

@@ -1,5 +1,6 @@
-import { Entity, UniqueEntityId } from '@micro/kernel/lib/domain';
-import { Iso } from './iso';
+import { Entity, UniqueEntityId } from "@micro/kernel/lib/domain";
+
+import { Iso } from "./iso";
 
 export interface CountryProps {
   name: string;

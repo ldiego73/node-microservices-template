@@ -1,4 +1,4 @@
-import { ValueObject } from '@micro/kernel/lib/domain/value-object';
+import { ValueObject } from "@micro/kernel/lib/domain/value-object";
 
 export interface IsoProps {
   value: string;

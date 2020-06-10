@@ -1,8 +1,8 @@
-import { DomainError } from '@micro/kernel/lib/domain';
+import { DomainError } from "@micro/kernel/lib/domain";
 
 export class CountryNotFoundError extends DomainError {
   public constructor(iso: string) {
-    super('COUNTRY_NOT_FOUND', `The country "${iso}" not exists`);
+    super("COUNTRY_NOT_FOUND", `The country "${iso}" not exists`);
   }
 
   public static create(iso: string): CountryNotFoundError {

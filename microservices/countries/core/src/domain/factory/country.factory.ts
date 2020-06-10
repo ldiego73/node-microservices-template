@@ -1,9 +1,10 @@
-import { Result, Either } from '@micro/kernel/lib/result';
-import { UniqueEntityId } from '@micro/kernel/lib/domain';
-import * as validator from '@micro/utils';
-import { Schema } from '@micro/utils';
-import { CountryInvalidError } from '../errors';
-import { Country, CountryProps } from '../country';
+import { UniqueEntityId } from "@micro/kernel/lib/domain";
+import { Either,Result } from "@micro/kernel/lib/result";
+import * as validator from "@micro/utils";
+import { Schema } from "@micro/utils";
+
+import { Country, CountryProps } from "../country";
+import { CountryInvalidError } from "../errors";
 
 export class CountryFactory {
   public static create(

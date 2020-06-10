@@ -1,8 +1,8 @@
-import { DomainError } from '@micro/kernel/lib/domain';
+import { DomainError } from "@micro/kernel/lib/domain";
 
 export class CountryInvalidError extends DomainError {
   public constructor(field: string) {
-    super('COUNTRY_INVALID', `The Country is invalid => ${field}`);
+    super("COUNTRY_INVALID", `The Country is invalid => ${field}`);
   }
 
   public static create(field: string): CountryInvalidError {

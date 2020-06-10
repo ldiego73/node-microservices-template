@@ -1,7 +1,8 @@
-import { Result, Either } from '@micro/kernel/lib/result';
-import * as validator from '@micro/utils';
-import { IsoInvalidError } from '../errors';
-import { Iso, IsoProps } from '../iso';
+import { Either,Result } from "@micro/kernel/lib/result";
+import * as validator from "@micro/utils";
+
+import { IsoInvalidError } from "../errors";
+import { Iso, IsoProps } from "../iso";
 
 export class IsoFactory {
   public static create(iso: string): Either<IsoInvalidError, Iso> {
