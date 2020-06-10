@@ -1,4 +1,4 @@
-import { ValueObject } from '../../../src/domain/value-object';
+import { ValueObject } from "../../../src/domain/value-object";
 
 interface UserEmailProps {
   value: string;
@@ -17,11 +17,11 @@ export class UserEmail extends ValueObject<UserEmailProps> {
 
   public static create(email?: string): UserEmail {
     if (email === null || email === undefined) {
-      throw new Error('The email is null or undefined');
+      throw new Error("The email is null or undefined");
     }
 
     if (!EMAIL_REGEXP.test(email)) {
-      throw new Error('The email is not in the correct format');
+      throw new Error("The email is not in the correct format");
     }
 
     return new UserEmail({ value: email });

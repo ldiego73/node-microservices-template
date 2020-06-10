@@ -1,5 +1,5 @@
-import { Entity } from '../../../src/domain/entity';
-import { UniqueEntityId } from '../../../src/domain/unique-entity-id';
+import { Entity } from "../../../src/domain/entity";
+import { UniqueEntityId } from "../../../src/domain/unique-entity-id";
 
 interface AddressProps {
   address: string;

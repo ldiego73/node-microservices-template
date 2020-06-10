@@ -1,7 +1,7 @@
-import { Entity } from '../../../src/domain/entity';
-import { UniqueEntityId } from '../../../src/domain/unique-entity-id';
-import { UserEmail } from './user-email';
-import { UserPassword } from './user-password';
+import { Entity } from "../../../src/domain/entity";
+import { UniqueEntityId } from "../../../src/domain/unique-entity-id";
+import { UserEmail } from "./user-email";
+import { UserPassword } from "./user-password";
 
 interface UserProps {
   username: string;

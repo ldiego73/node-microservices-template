@@ -1,12 +1,12 @@
-import { UniqueEntityId } from '../../src/domain/unique-entity-id';
+import { UniqueEntityId } from "../../src/domain/unique-entity-id";
 
-describe('UniqueEntityId', () => {
-  it('should create an instance', () => {
+describe("UniqueEntityId", () => {
+  it("should create an instance", () => {
     expect(new UniqueEntityId()).toBeTruthy();
   });
 
-  it('should create an unique entity id string or number', () => {
-    const code = 'CODE';
+  it("should create an unique entity id string or number", () => {
+    const code = "CODE";
     const id = 123;
 
     const id1 = new UniqueEntityId(code);
@@ -16,7 +16,7 @@ describe('UniqueEntityId', () => {
     expect(id2.toValue()).toEqual(id);
   });
 
-  it('should compare two identifiers', () => {
+  it("should compare two identifiers", () => {
     const id: number = Math.random();
 
     const id1 = new UniqueEntityId(id);
@@ -26,7 +26,7 @@ describe('UniqueEntityId', () => {
     expect(id2.equals(id1)).toBe(true);
   });
 
-  it('should compare two incorrect identifiers', () => {
+  it("should compare two incorrect identifiers", () => {
     const id1 = new UniqueEntityId(Math.random());
     const id2 = new UniqueEntityId();
 
@@ -34,7 +34,7 @@ describe('UniqueEntityId', () => {
     expect(id2.equals(id1)).toBe(false);
   });
 
-  it('should validate that two unique entity id are differents', () => {
+  it("should validate that two unique entity id are differents", () => {
     const id1 = new UniqueEntityId();
     const id2 = new UniqueEntityId();
 

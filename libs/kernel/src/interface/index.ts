@@ -1,1 +1,1 @@
-export * from './micro.application';
+export * from "./micro.application";

@@ -1,38 +1,38 @@
-import { UniqueEntityId } from '../../src/domain/unique-entity-id';
-import { Address, Contact } from './models';
+import { UniqueEntityId } from "../../src/domain/unique-entity-id";
+import { Address, Contact } from "./models";
 
-describe('AggregateRoot', () => {
+describe("AggregateRoot", () => {
   let address: Address;
   let contact: Contact;
 
   beforeEach(() => {
     address = Address.create({
-      address: 'Av. Lima 123',
-      city: 'Lima',
-      latitude: '1.111',
-      longitude: '2.222',
+      address: "Av. Lima 123",
+      city: "Lima",
+      latitude: "1.111",
+      longitude: "2.222",
     });
 
     contact = Contact.create({
-      firstName: 'Luis',
-      lastName: 'Diego',
+      firstName: "Luis",
+      lastName: "Diego",
       age: 30,
       address,
       status: true,
     });
   });
 
-  it('should create an instance', () => {
+  it("should create an instance", () => {
     expect(contact).toBeTruthy();
   });
 
-  it('should if the entity is valid', () => {
+  it("should if the entity is valid", () => {
     const id: UniqueEntityId = new UniqueEntityId();
 
     const newContact = Contact.create(
       {
-        firstName: 'Luis',
-        lastName: 'Diego',
+        firstName: "Luis",
+        lastName: "Diego",
         age: 30,
         address,
         status: true,
@@ -42,8 +42,8 @@ describe('AggregateRoot', () => {
 
     const otherContact = Contact.create(
       {
-        firstName: 'Luis',
-        lastName: 'Diego',
+        firstName: "Luis",
+        lastName: "Diego",
         age: 30,
         address,
         status: true,
@@ -54,20 +54,20 @@ describe('AggregateRoot', () => {
     expect(newContact.equals(otherContact)).toBeTruthy();
   });
 
-  it('should compare aggregate root with nullable or undefined', () => {
+  it("should compare aggregate root with nullable or undefined", () => {
     expect(contact.equals()).toBeFalsy();
     expect(contact.equals(undefined)).toBeFalsy();
   });
 
-  it('should compare the aggregate root with itself', () => {
+  it("should compare the aggregate root with itself", () => {
     expect(contact.equals(contact)).toBeTruthy();
   });
 
-  it('should validate entity fields', () => {
+  it("should validate entity fields", () => {
     const id = new UniqueEntityId();
 
-    const firstName = 'Luis';
-    const lastName = 'Diego';
+    const firstName = "Luis";
+    const lastName = "Diego";
     const age = 30;
     const status = true;
 
@@ -96,12 +96,12 @@ describe('AggregateRoot', () => {
     expect(contact.address?.longitude).toEqual(address.longitude);
   });
 
-  it('should validate change status', () => {
+  it("should validate change status", () => {
     const status = true;
 
     const contact = Contact.create({
-      firstName: 'Luis',
-      lastName: 'Diego',
+      firstName: "Luis",
+      lastName: "Diego",
       age: 30,
       address,
       status,
@@ -112,12 +112,12 @@ describe('AggregateRoot', () => {
     expect(contact.status).not.toEqual(status);
   });
 
-  it('should validate change birthday', () => {
+  it("should validate change birthday", () => {
     const birthday = 123;
 
     const contact = Contact.create({
-      firstName: 'Luis',
-      lastName: 'Diego',
+      firstName: "Luis",
+      lastName: "Diego",
       age: 30,
       address,
       status: true,
@@ -128,46 +128,46 @@ describe('AggregateRoot', () => {
     expect(contact.birthday).not.toEqual(0);
   });
 
-  it('should firstName is undefined', () => {
+  it("should firstName is undefined", () => {
     expect(() =>
       Contact.create({
-        lastName: 'Diego',
+        lastName: "Diego",
         age: 30,
         address,
         status: true,
       })
-    ).toThrowError(new Error('The firstName is undefined'));
+    ).toThrowError(new Error("The firstName is undefined"));
   });
 
-  it('should firstName is nullable', () => {
+  it("should firstName is nullable", () => {
     const contact = Contact.create({
       firstName: null,
-      lastName: 'Diego',
+      lastName: "Diego",
       age: 30,
       address,
       status: true,
     });
 
-    expect(contact.firstName).toEqual('');
+    expect(contact.firstName).toEqual("");
   });
 
-  it('should lastName is nullable', () => {
+  it("should lastName is nullable", () => {
     const contact = Contact.create({
-      firstName: 'Luis',
+      firstName: "Luis",
       lastName: null,
       age: 30,
       address,
       status: true,
     });
 
-    expect(contact.lastName).toEqual('');
+    expect(contact.lastName).toEqual("");
   });
 
-  it('should address is nullable', () => {
+  it("should address is nullable", () => {
     expect(() =>
       Contact.create({
-        firstName: 'Luis',
-        lastName: 'Diego',
+        firstName: "Luis",
+        lastName: "Diego",
         age: 30,
         address: null,
         status: true,

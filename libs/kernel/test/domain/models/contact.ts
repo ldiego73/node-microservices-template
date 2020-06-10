@@ -1,6 +1,6 @@
-import { AggregateRoot } from '../../../src/domain/aggregate-root';
-import { UniqueEntityId } from '../../../src/domain/unique-entity-id';
-import { Address } from './address';
+import { AggregateRoot } from "../../../src/domain/aggregate-root";
+import { UniqueEntityId } from "../../../src/domain/unique-entity-id";
+import { Address } from "./address";
 
 interface ContactProps {
   firstName?: string | null;
@@ -13,11 +13,11 @@ interface ContactProps {
 
 export class Contact extends AggregateRoot<ContactProps> {
   get firstName(): string {
-    return this.props.firstName ?? '';
+    return this.props.firstName ?? "";
   }
 
   get lastName(): string {
-    return this.props.lastName ?? '';
+    return this.props.lastName ?? "";
   }
 
   get age(): number {
@@ -46,11 +46,11 @@ export class Contact extends AggregateRoot<ContactProps> {
 
   public static create(props: ContactProps, id?: UniqueEntityId): Contact {
     if (props.firstName === undefined) {
-      throw new Error('The firstName is undefined');
+      throw new Error("The firstName is undefined");
     }
 
     if (props.address === null || props.address === undefined) {
-      throw new Error('The address is null or undefined');
+      throw new Error("The address is null or undefined");
     }
 
     return new Contact(props, id);
