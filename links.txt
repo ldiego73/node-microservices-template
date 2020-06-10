@@ -10,3 +10,4 @@ https://basarat.gitbook.io/typescript/styleguide#filename
 https://github.com/dotnet-architecture/eShopOnContainers
 https://github.com/sckv/almeriajs-ddd
 https://github.com/joshuaalpuerto/node-ddd-boilerplate
+https://github.com/khaosdoctor/node-ddsp-backend-template
