@@ -1703,9 +1703,9 @@
   integrity sha512-QjZCSMHHy8IW4UUTS49QJQ0NrA8MHv6XevNrPLJwh4n3lN7wY9aSRwd1+cBIUDBXEHRKngcYdPtC4oG0fimw+A==
 
 "@nestjs/platform-fastify@^7.1.0":
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/@nestjs/platform-fastify/-/platform-fastify-7.1.0.tgz#e491c7153593d4f658770d7a24608af009e9b125"
-  integrity sha512-XtZjqmPyjTgNGT8mSuScaRzIgyS0dwqQMIGybhaQ5oRkowchd70+351Ly1YlzXycP4xB/Hu8ijwhmTiy26xgjw==
+  version "7.1.3"
+  resolved "https://registry.yarnpkg.com/@nestjs/platform-fastify/-/platform-fastify-7.1.3.tgz#549f13246fb82df8c6484c39b5d45812311fc4ae"
+  integrity sha512-MY5zJmGTrosvMO5+kfYSQkugCnXL26oW3ojjryV/ebRLKynPCXVfSPgE5SwAWB0aJ4qYdVLyJgMRlv3M13Xk1g==
   dependencies:
     fastify "2.14.1"
     fastify-cors "3.0.3"
