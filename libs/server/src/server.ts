@@ -1,18 +1,18 @@
-import { NestFactory } from '@nestjs/core';
+import { Logger } from "@micro/logger";
+import { NestFactory } from "@nestjs/core";
 import {
   FastifyAdapter,
   NestFastifyApplication,
-} from '@nestjs/platform-fastify';
-import { ServerOptionsAsSecureHttp } from 'fastify';
-import helmet from 'fastify-helmet';
-import compression from 'fastify-compress';
-import path from 'path';
-import fs from 'fs';
-import { Logger } from '@micro/logger';
+} from "@nestjs/platform-fastify";
+import { ServerOptionsAsSecureHttp } from "fastify";
+import compression from "fastify-compress";
+import helmet from "fastify-helmet";
+import fs from "fs";
+import path from "path";
 
-import { ServerOptions } from './core';
-import { HttpExceptionFilter } from './filters/http-exception.filter';
-import { GraphQlExceptionFilter } from './filters/graphql-exception.filter';
+import { ServerOptions } from "./core";
+import { GraphQlExceptionFilter } from "./filters/graphql-exception.filter";
+import { HttpExceptionFilter } from "./filters/http-exception.filter";
 
 const readCert = (cert: string): Buffer =>
   fs.readFileSync(path.join(process.cwd(), cert));
@@ -26,7 +26,7 @@ export class Server {
 
   private constructor(appModule: unknown, options: ServerOptions) {
     if (appModule === null || appModule === undefined) {
-      throw new Error('Unable to retrieve app module');
+      throw new Error("Unable to retrieve app module");
     }
 
     this.log = Logger.create(this.constructor.name);
@@ -52,7 +52,7 @@ export class Server {
         },
       };
     } else {
-      throw new Error('Unable to retrieve https values');
+      throw new Error("Unable to retrieve https values");
     }
   }
 
@@ -73,12 +73,12 @@ export class Server {
       appModule,
       this.adapter(),
       {
-        logger: this.options.logger ? ['error', 'warn'] : false,
+        logger: this.options.logger ? ["error", "warn"] : false,
       }
     );
 
     this.app.register(helmet);
-    this.app.register(compression, { encodings: ['gzip', 'deflate'] });
+    this.app.register(compression, { encodings: ["gzip", "deflate"] });
 
     this.plugins.forEach((p) => {
       this.app.register(...p);

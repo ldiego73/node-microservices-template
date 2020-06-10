@@ -1,4 +1,4 @@
-import { Logger } from '@micro/logger';
+import { Logger } from "@micro/logger";
 
 export abstract class BaseService {
   protected log: Logger;

@@ -1,8 +1,8 @@
-import { ExceptionFilter, Catch, ArgumentsHost } from '@nestjs/common';
-import { FastifyRequest, FastifyReply } from 'fastify';
-import { ServerResponse } from 'http';
+import { ArgumentsHost, Catch, ExceptionFilter } from "@nestjs/common";
+import { FastifyReply, FastifyRequest } from "fastify";
+import { ServerResponse } from "http";
 
-import { BaseExceptionFilter, Response } from './base.exception.filter';
+import { BaseExceptionFilter, Response } from "./base.exception.filter";
 
 @Catch()
 export class HttpExceptionFilter extends BaseExceptionFilter
