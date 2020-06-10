@@ -1,6 +1,6 @@
 import { ApolloError } from "apollo-server-fastify";
 
-import { Exception } from "./exception";
+import { Exception } from "@micro/server/lib/exceptions";
 
 export class GraphqlException extends ApolloError {
   constructor(props: Exception) {

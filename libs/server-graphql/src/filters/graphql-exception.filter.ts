@@ -1,3 +1,4 @@
+import { BaseExceptionFilter, Response } from "@micro/server/lib/filters";
 import { ArgumentsHost, Catch } from "@nestjs/common";
 import {
   GqlArgumentsHost,
@@ -7,7 +8,6 @@ import {
 import { GraphQLResolveInfo } from "graphql";
 
 import { GraphqlException } from "../exceptions";
-import { BaseExceptionFilter, Response } from "./base.exception.filter";
 
 @Catch()
 export class GraphQlExceptionFilter extends BaseExceptionFilter

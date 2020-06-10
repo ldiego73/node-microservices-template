@@ -4,6 +4,7 @@
     { "directory": "libs/kernel", "changeProcessCWD": true },
     { "directory": "libs/logger", "changeProcessCWD": true },
     { "directory": "libs/server", "changeProcessCWD": true },
+    { "directory": "libs/server-graphql", "changeProcessCWD": true },
     { "directory": "libs/utils", "changeProcessCWD": true },
     { "directory": "microservices/countries/app", "changeProcessCWD": true },
     { "directory": "microservices/countries/config", "changeProcessCWD": true },
