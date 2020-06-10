@@ -1,8 +1,9 @@
 import { UseCase, UseCaseUnexpectedError } from '@micro/kernel/lib/application';
 import { Either, Result } from '@micro/kernel/lib/result';
-import { CountryRepository, Iso } from '../../../domain';
+import { CountryRepository } from '../../../domain';
 import { IsoInvalidError } from '../../../domain/errors';
 import { IsoDto } from '../../dtos';
+import { IsoFactory } from '../../../domain/factory';
 
 type Response<T> = Either<IsoInvalidError | UseCaseUnexpectedError, T>;
 
@@ -14,7 +15,7 @@ export class DeleteCountryUseCase implements UseCase<IsoDto, Response<any>> {
   }
 
   async execute(request: IsoDto): Promise<Response<any>> {
-    const isoOrError = Iso.create(request.iso);
+    const isoOrError = IsoFactory.create(request.iso);
 
     if (isoOrError.isFailure()) {
       return Result.fail(isoOrError.error);

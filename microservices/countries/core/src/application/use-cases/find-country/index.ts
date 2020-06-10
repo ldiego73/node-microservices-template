@@ -1,4 +1,4 @@
-import { CountryRepositoryImpl } from '../../../infraestructure/repositories';
+import { CountryRepositoryImpl } from '../../../infraestructure/repository';
 import { FindCountryUseCase } from './find-country.use-case';
 
 const repository = new CountryRepositoryImpl();

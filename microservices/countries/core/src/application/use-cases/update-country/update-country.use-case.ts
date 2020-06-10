@@ -1,9 +1,10 @@
 import { UseCase, UseCaseUnexpectedError } from '@micro/kernel/lib/application';
 import { Either, Result } from '@micro/kernel/lib/result';
-import { CountryRepository, Iso, Country } from '../../../domain';
+import { CountryRepository, Country } from '../../../domain';
 import { IsoInvalidError } from '../../../domain/errors';
 import { CountryDto } from '../../dtos';
 import { CountryNotExistsError } from './update-country.error';
+import { IsoFactory, CountryFactory } from '../../../domain/factory';
 
 type Response<T> = Either<
   IsoInvalidError | CountryNotExistsError | UseCaseUnexpectedError,
@@ -19,7 +20,7 @@ export class UpdateCountryUseCase
   }
 
   async execute(request: CountryDto): Promise<Response<any>> {
-    const isoOrError = Iso.create(request.iso);
+    const isoOrError = IsoFactory.create(request.iso);
 
     if (isoOrError.isFailure()) {
       return Result.fail(isoOrError.error);
@@ -27,7 +28,7 @@ export class UpdateCountryUseCase
 
     const iso = isoOrError.value;
 
-    const countryOrError = Country.create({
+    const countryOrError = CountryFactory.create({
       name: request.name,
       iso,
       currency: request.currency,

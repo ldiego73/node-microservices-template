@@ -2,14 +2,13 @@
 
 import { Mapper } from '@micro/kernel/lib/infraestructure/mapper';
 import { UniqueEntityId } from '@micro/kernel';
-import { Country, Iso } from '../../domain';
+import { Country } from '../../domain';
+import { IsoFactory, CountryFactory } from '../../domain/factory';
 
 export class CountryMapper implements Mapper<Country> {
   toDomain(raw: any): Country {
-    const isoOrError = Iso.create(raw.iso);
-    const iso = isoOrError.value;
-
-    const countryOrError = Country.create(
+    const iso = IsoFactory.createFrom(raw.iso);
+    const country = CountryFactory.createFrom(
       {
         name: raw.name,
         iso: iso,
@@ -19,7 +18,7 @@ export class CountryMapper implements Mapper<Country> {
       new UniqueEntityId(raw.id)
     );
 
-    return countryOrError.value;
+    return country;
   }
 
   toPersistence(country: Country): any {
