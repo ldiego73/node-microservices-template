@@ -1,2 +1,2 @@
-export * from './common';
-export * from './validator';
+export * from "./common";
+export * from "./validator";

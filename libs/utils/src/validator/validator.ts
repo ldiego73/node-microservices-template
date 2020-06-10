@@ -1,11 +1,11 @@
 import {
-  isNumber,
-  isString,
+  isArray,
   isBoolean,
   isNullOrUndefined,
-  isArray,
+  isNumber,
   isObjectWithItems,
-} from './common';
+  isString,
+} from "./common";
 
 export type Validator<T> = (value: T) => ValidatorResult;
 export type Schema<T extends object> = {
@@ -119,7 +119,7 @@ export function any(): Validator<any> {
   };
 }
 
-export function optional<T>(fn: Validator<T & {}>): Validator<T | undefined> {
+export function optional<T>(fn: Validator<T>): Validator<T | undefined> {
   return function (value: T | undefined) {
     if (isNullOrUndefined(value)) {
       return ok();
@@ -132,12 +132,12 @@ export function optional<T>(fn: Validator<T & {}>): Validator<T | undefined> {
 export function array<T>(fn: Validator<T>): Validator<Array<T>> {
   return function (value: Array<T>) {
     if (!isArray(value)) {
-      return fail('is not array');
+      return fail("is not array");
     }
     for (const item of value) {
       const result = fn(item);
       if (!result.success) {
-        return fail(result.message ?? '');
+        return fail(result.message ?? "");
       }
     }
     return ok();
@@ -202,7 +202,7 @@ export function validate<T extends object>(
   schema: Schema<T>,
   values: T
 ): ValidatorResult {
-  if (!isObjectWithItems(values)) return fail('values is not object');
+  if (!isObjectWithItems(values)) return fail("values is not object");
 
   for (const key in schema) {
     const result = schema[key](values[key]);
@@ -218,7 +218,7 @@ export function validateMap<T>(
   fn: Validator<T>,
   values: { [key: string]: T }
 ): ValidatorResult {
-  if (!isObjectWithItems(values)) return fail('values is not object');
+  if (!isObjectWithItems(values)) return fail("values is not object");
 
   for (const key in values) {
     const result = fn(values[key]);
@@ -234,7 +234,7 @@ export function validateBulk<T extends object>(
   values: T
 ): ValidatorGroupResult {
   if (!isObjectWithItems(values))
-    return { success: false, messages: ['values is not object'] };
+    return { success: false, messages: ["values is not object"] };
 
   const messages: string[] = [];
   let success = false;
@@ -257,7 +257,7 @@ export function validateMapBulk<T>(
   values: { [key: string]: T }
 ): ValidatorGroupResult {
   if (!isObjectWithItems(values))
-    return { success: false, messages: ['values is not object'] };
+    return { success: false, messages: ["values is not object"] };
 
   const messages: string[] = [];
   let success = false;
