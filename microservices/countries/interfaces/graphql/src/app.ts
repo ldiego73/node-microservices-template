@@ -2,7 +2,7 @@
 
 import { readEnv } from "@micro/countries-config";
 import { MicroApplication } from "@micro/kernel";
-import { Server } from "@micro/server";
+import { Server } from "@micro/server-graphql";
 import cors from "fastify-cors";
 import rateLimit from "fastify-rate-limit";
 
@@ -14,7 +14,6 @@ export class CountryGraphqlApplication extends MicroApplication {
     const { key, cert } = env.server.https!;
     const server = Server.create(AppModule, {
       port: env.server.port,
-      graphql: true,
       https: { key, cert },
     });
 

@@ -28,6 +28,7 @@
     "@micro/kernel": "^1.0.0",
     "@micro/logger": "^1.0.0",
     "@micro/server": "^1.0.0",
+    "@micro/server-graphql": "^1.0.0",
     "fastify-cors": "^3.0.3",
     "fastify-rate-limit": "^3.0.1"
   },
