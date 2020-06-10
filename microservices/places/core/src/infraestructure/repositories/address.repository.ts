@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import { AddressRepository } from '../../domain/repository';
-import { Address } from '../../domain/address';
-import { SearchService } from '../services/search.service';
-import { Mapper } from '@micro/kernel/lib/infraestructure/mapper';
-import { AddressMapper } from '../mappers/address.mapper';
+import { Mapper } from "@micro/kernel/lib/infraestructure/mapper";
+
+import { Address } from "../../domain/address";
+import { AddressRepository } from "../../domain/repository";
+import { AddressMapper } from "../mappers/address.mapper";
+import { SearchService } from "../services/search.service";
 
 export class AddressRepositoryImpl implements AddressRepository {
   private service: SearchService;
@@ -27,18 +28,18 @@ export class AddressRepositoryImpl implements AddressRepository {
   }
 
   async findAll(): Promise<Address[]> {
-    throw new Error('Not implemented');
+    throw new Error("Not implemented");
   }
 
   async save(address: Address): Promise<void> {
-    throw new Error('Not implemented');
+    throw new Error("Not implemented");
   }
 
   async create(address: Address): Promise<void> {
-    throw new Error('Not implemented');
+    throw new Error("Not implemented");
   }
 
   async update(address: Address): Promise<void> {
-    throw new Error('Not implemented');
+    throw new Error("Not implemented");
   }
 }

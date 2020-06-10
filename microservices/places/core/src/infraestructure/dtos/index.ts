@@ -1,1 +1,1 @@
-export * from './google.dto';
+export * from "./google.dto";

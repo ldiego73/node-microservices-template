@@ -1,9 +1,14 @@
-import axios from 'axios';
-import { readEnv } from '@micro/places-config';
-import { GoogleSearchResult, GoogleDetailsResult, GoogleGeoCodeResult } from '../dtos';
+import { readEnv } from "@micro/places-config";
+import axios from "axios";
+
+import {
+  GoogleDetailsResult,
+  GoogleGeoCodeResult,
+  GoogleSearchResult,
+} from "../dtos";
 
 const env = readEnv();
-const request = axios.create({ url: 'https://maps.googleapis.com/maps/api' });
+const request = axios.create({ url: "https://maps.googleapis.com/maps/api" });
 
 export class GoogleApi {
   async search(country: string, address: string): Promise<GoogleSearchResult> {
@@ -15,7 +20,7 @@ export class GoogleApi {
     queries.push(`components=country:${country.toLowerCase()}`);
     queries.push(`key=${env.apiKey}`);
 
-    const result = await request.get(`${url}?${queries.join('&')}`);
+    const result = await request.get(`${url}?${queries.join("&")}`);
 
     return result.data as GoogleSearchResult;
   }
@@ -28,7 +33,7 @@ export class GoogleApi {
     queries.push(`fields=name,id,geometry`);
     queries.push(`key=${env.apiKey}`);
 
-    const result = await request.get(`${url}?${queries.join('&')}`);
+    const result = await request.get(`${url}?${queries.join("&")}`);
 
     return result.data as GoogleDetailsResult;
   }
@@ -41,7 +46,7 @@ export class GoogleApi {
     queries.push(`result_type=street_address`);
     queries.push(`key=${env.apiKey}`);
 
-    const result = await request.get(`${url}?${queries.join('&')}`);
+    const result = await request.get(`${url}?${queries.join("&")}`);
 
     return result.data as GoogleGeoCodeResult;
   }

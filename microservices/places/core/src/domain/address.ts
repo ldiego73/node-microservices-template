@@ -1,10 +1,11 @@
-import { Entity, UniqueEntityId } from '@micro/kernel/lib/domain';
-import { Result, Either } from '@micro/kernel/lib/result';
-import { Schema } from '@micro/utils';
-import * as validator from '@micro/utils';
-import { LatLng } from './lat-lng';
-import { AddressInvalidError } from './errors';
-import { Country } from './country';
+import { Entity, UniqueEntityId } from "@micro/kernel/lib/domain";
+import { Either,Result } from "@micro/kernel/lib/result";
+import { Schema } from "@micro/utils";
+import * as validator from "@micro/utils";
+
+import { Country } from "./country";
+import { AddressInvalidError } from "./errors";
+import { LatLng } from "./lat-lng";
 
 interface AddressProps {
   country: Country;

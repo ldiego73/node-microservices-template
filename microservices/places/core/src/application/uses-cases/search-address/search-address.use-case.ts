@@ -1,7 +1,8 @@
-import { UseCase, UseCaseUnexpectedError } from '@micro/kernel/lib/application';
-import { Either, Result } from '@micro/kernel/lib/result';
-import { AddressDto, SearchDto } from '../../dtos';
-import { AddressRepository } from '../../../domain';
+import { UseCase, UseCaseUnexpectedError } from "@micro/kernel/lib/application";
+import { Either, Result } from "@micro/kernel/lib/result";
+
+import { AddressRepository } from "../../../domain";
+import { AddressDto, SearchDto } from "../../dtos";
 
 type Response<T> = Either<UseCaseUnexpectedError, T>;
 

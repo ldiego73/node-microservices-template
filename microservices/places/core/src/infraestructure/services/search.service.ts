@@ -1,5 +1,5 @@
-import { GoogleApi } from '../http';
-import { GoogleDetailsResult, GoogleAddress } from '../dtos';
+import { GoogleAddress,GoogleDetailsResult } from "../dtos";
+import { GoogleApi } from "../http";
 
 export class SearchService {
   private api: GoogleApi;
@@ -25,8 +25,8 @@ export class SearchService {
         country,
         description: p.description,
         latLng: {
-          lat: latLng?.result.geometry.location.lat || '',
-          lng: latLng?.result.geometry.location.lng || '',
+          lat: latLng?.result.geometry.location.lat || "",
+          lng: latLng?.result.geometry.location.lng || "",
         },
       });
     });
@@ -42,7 +42,7 @@ export class SearchService {
     addresses.result.forEach((a) => {
       data.push({
         id: a.place_id,
-        country: '',
+        country: "",
         description: a.formatted_address,
         latLng: {
           lat: a.geometry.location.lat,

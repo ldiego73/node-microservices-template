@@ -1,7 +1,8 @@
-import { Result, Either } from '@micro/kernel/lib/result';
-import { ValueObject } from '@micro/kernel/lib/domain/value-object';
-import * as validator from '@micro/utils';
-import { LatitudeInvalidError, LongitudeInvalidError } from './errors';
+import { ValueObject } from "@micro/kernel/lib/domain/value-object";
+import { Either,Result } from "@micro/kernel/lib/result";
+import * as validator from "@micro/utils";
+
+import { LatitudeInvalidError, LongitudeInvalidError } from "./errors";
 
 interface LatLngProps {
   lat: string;

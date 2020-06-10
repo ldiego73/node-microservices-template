@@ -32,7 +32,6 @@ export interface GoogleGeoCodeResult {
   result: GoogleResult[];
 }
 
-
 export interface GoogleAddress {
   id: string;
   country: string;

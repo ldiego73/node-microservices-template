@@ -4,6 +4,7 @@ parserOptions:
   sourceType: "module"
 plugins:
   - "@typescript-eslint/eslint-plugin"
+  - "simple-import-sort"
 extends:
   - plugin:@typescript-eslint/eslint-recommended
   - plugin:@typescript-eslint/recommended
@@ -16,3 +17,4 @@ rules:
   "@typescript-eslint/interface-name-prefix": 0
   "@typescript-eslint/explicit-function-return-type": 0
   "@typescript-eslint/no-explicit-any": 0
+  "simple-import-sort/sort": 2
