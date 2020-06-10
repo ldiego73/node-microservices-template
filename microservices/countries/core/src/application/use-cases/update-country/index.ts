@@ -1,8 +1,7 @@
-import { CountryRepositoryImpl } from "../../../infraestructure/repository";
+import { countryRepository } from "../../../infraestructure";
 import { UpdateCountryUseCase } from "./update-country.use-case";
 
-const repository = new CountryRepositoryImpl();
-const updateCountryUseCase = new UpdateCountryUseCase(repository);
+const updateCountryUseCase = new UpdateCountryUseCase(countryRepository);
 
 export * from "./update-country.error";
 export * from "./update-country.use-case";

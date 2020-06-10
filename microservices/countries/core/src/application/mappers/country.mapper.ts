@@ -1,9 +1,7 @@
-import { Transform } from "@micro/kernel/lib/application/transform";
-
 import { Country } from "../../domain";
 import { CountryDto } from "../dtos";
 
-export class CountryTransform implements Transform<Country, CountryDto> {
+export class CountryMapper {
   toDto(country: Country): CountryDto {
     return {
       name: country.name,

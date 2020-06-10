@@ -1,5 +1,5 @@
 import { UniqueEntityId } from "@micro/kernel/lib/domain";
-import { Either,Result } from "@micro/kernel/lib/result";
+import { Either, Result } from "@micro/kernel/lib/result";
 import * as validator from "@micro/utils";
 import { Schema } from "@micro/utils";
 

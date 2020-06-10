@@ -1,4 +1,4 @@
-import { Either,Result } from "@micro/kernel/lib/result";
+import { Either, Result } from "@micro/kernel/lib/result";
 import * as validator from "@micro/utils";
 
 import { IsoInvalidError } from "../errors";

@@ -1,16 +1,11 @@
-import { Mapper } from "@micro/kernel/lib/infraestructure/mapper";
+import { DataMapper } from "@micro/kernel/lib/infraestructure/mapper";
 import { isNullOrUndefined } from "@micro/utils";
 
-import { Country,CountryRepository } from "../../domain";
+import { Country, CountryRepository } from "../../domain";
 import { CountryModel } from "../database/models";
-import { CountryMapper } from "../mappers";
 
 export class CountryRepositoryImpl implements CountryRepository {
-  private mapper: Mapper<Country>;
-
-  constructor() {
-    this.mapper = new CountryMapper();
-  }
+  constructor(private mapper: DataMapper<Country>) {}
 
   async findAll(): Promise<Country[]> {
     const data = await CountryModel.findAll();

@@ -1,9 +1,9 @@
 import { UseCase, UseCaseUnexpectedError } from "@micro/kernel/lib/application";
 import { Either, Result } from "@micro/kernel/lib/result";
 
-import { Country,CountryRepository } from "../../../domain";
-import { CountryInvalidError,IsoInvalidError } from "../../../domain/errors";
-import { CountryFactory,IsoFactory } from "../../../domain/factory";
+import { Country, CountryRepository } from "../../../domain";
+import { CountryInvalidError, IsoInvalidError } from "../../../domain/errors";
+import { CountryFactory, IsoFactory } from "../../../domain/factory";
 import { CountryDto } from "../../dtos";
 import { CountryAlreadyExistsError } from "./create-country.error";
 
@@ -17,11 +17,7 @@ type Response<T> = Either<
 
 export class CreateCountryUseCase
   implements UseCase<CountryDto, Response<any>> {
-  private repository: CountryRepository;
-
-  constructor(repository: CountryRepository) {
-    this.repository = repository;
-  }
+  constructor(private repository: CountryRepository) {}
 
   async execute(request: CountryDto): Promise<Response<any>> {
     const isoOrError = IsoFactory.create(request.iso);

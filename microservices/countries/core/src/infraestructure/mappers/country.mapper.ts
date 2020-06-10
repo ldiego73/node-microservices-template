@@ -1,12 +1,12 @@
 /* eslint @typescript-eslint/explicit-module-boundary-types:0 */
 
-import { UniqueEntityId } from "@micro/kernel";
-import { Mapper } from "@micro/kernel/lib/infraestructure/mapper";
+import { UniqueEntityId } from "@micro/kernel/lib/domain";
+import { DataMapper } from "@micro/kernel/lib/infraestructure/mapper";
 
 import { Country } from "../../domain";
-import { CountryFactory,IsoFactory } from "../../domain/factory";
+import { CountryFactory, IsoFactory } from "../../domain/factory";
 
-export class CountryMapper implements Mapper<Country> {
+export class CountryDataMapper implements DataMapper<Country> {
   toDomain(raw: any): Country {
     const iso = IsoFactory.createFrom(raw.iso);
     const country = CountryFactory.createFrom(

@@ -9,11 +9,7 @@ import { IsoDto } from "../../dtos";
 type Response<T> = Either<IsoInvalidError | UseCaseUnexpectedError, T>;
 
 export class DeleteCountryUseCase implements UseCase<IsoDto, Response<any>> {
-  private repository: CountryRepository;
-
-  constructor(repository: CountryRepository) {
-    this.repository = repository;
-  }
+  constructor(private repository: CountryRepository) {}
 
   async execute(request: IsoDto): Promise<Response<any>> {
     const isoOrError = IsoFactory.create(request.iso);

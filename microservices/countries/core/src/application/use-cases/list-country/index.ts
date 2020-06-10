@@ -1,8 +1,9 @@
-import { CountryRepositoryImpl } from "../../../infraestructure/repository";
+import { countryRepository } from "../../../infraestructure";
+import { CountryMapper } from "../../mappers";
 import { ListCountryUseCase } from "./list-country.use-case";
 
-const repository = new CountryRepositoryImpl();
-const listCountryUseCase = new ListCountryUseCase(repository);
+const mapper = new CountryMapper();
+const listCountryUseCase = new ListCountryUseCase(countryRepository, mapper);
 
 export * from "./list-country.use-case";
 export { listCountryUseCase };
