@@ -1,12 +1,12 @@
-import { Module } from '@nestjs/common';
-import { GraphQLModule } from '@nestjs/graphql';
-import path from 'path';
+import { Module } from "@nestjs/common";
+import { GraphQLModule } from "@nestjs/graphql";
+import path from "path";
 
-import { ListModule } from './list/list.module';
-import { FindModule } from './find/find.module';
-import { CreateModule } from './create/create.module';
-import { DeleteModule } from './delete/delete.module';
-import { UpdateModule } from './update/update.module';
+import { CreateModule } from "./create/create.module";
+import { DeleteModule } from "./delete/delete.module";
+import { FindModule } from "./find/find.module";
+import { ListModule } from "./list/list.module";
+import { UpdateModule } from "./update/update.module";
 
 const modules = [
   ListModule,
@@ -20,7 +20,7 @@ const modules = [
   imports: [
     ...modules,
     GraphQLModule.forRoot({
-      autoSchemaFile: path.join(process.cwd(), 'src/schema.gql'),
+      autoSchemaFile: path.join(process.cwd(), "src/schema.gql"),
     }),
   ],
 })

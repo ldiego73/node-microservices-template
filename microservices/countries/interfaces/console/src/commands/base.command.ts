@@ -1,6 +1,6 @@
-import { Command } from 'commander';
-import * as Commander from 'commander';
-import { Logger } from '@micro/logger';
+import { Logger } from "@micro/logger";
+import { Command } from "commander";
+import * as Commander from "commander";
 
 export abstract class BaseCommand {
   protected readonly name: string;

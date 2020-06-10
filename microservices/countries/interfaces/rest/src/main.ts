@@ -1,3 +1,3 @@
-import { CountryRestApplication } from './app';
+import { CountryRestApplication } from "./app";
 
 new CountryRestApplication().start();

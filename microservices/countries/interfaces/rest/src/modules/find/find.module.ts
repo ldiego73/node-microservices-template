@@ -1,6 +1,7 @@
-import { Module } from '@nestjs/common';
-import { FindController } from './find.controller';
-import { FindService } from './find.service';
+import { Module } from "@nestjs/common";
+
+import { FindController } from "./find.controller";
+import { FindService } from "./find.service";
 
 @Module({
   controllers: [FindController],

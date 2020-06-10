@@ -1,40 +1,41 @@
-import { BaseCommand } from '../base.command';
-import * as Commander from 'commander';
-import prompts, { PromptObject, Answers } from 'prompts';
-import { CountryDto } from '@micro/countries-core';
-import { CreateCountryUseCase } from '@micro/countries-core/lib/application/use-cases/create-country';
+import { CountryDto } from "@micro/countries-core";
+import { CreateCountryUseCase } from "@micro/countries-core/lib/application/use-cases/create-country";
+import * as Commander from "commander";
+import prompts, { Answers,PromptObject } from "prompts";
+
+import { BaseCommand } from "../base.command";
 
 export class CreateCommand extends BaseCommand {
   private useCase: CreateCountryUseCase;
 
   constructor(useCase: CreateCountryUseCase) {
-    super('create', 'Create a Country');
+    super("create", "Create a Country");
     this.useCase = useCase;
   }
 
   private createQuestions(): PromptObject[] {
     const nameQuestion: PromptObject = {
-      type: 'text',
-      name: 'name',
-      message: 'Enter country name',
+      type: "text",
+      name: "name",
+      message: "Enter country name",
     };
 
     const isoQuestion: PromptObject = {
-      type: 'text',
-      name: 'iso',
-      message: 'Enter country iso',
+      type: "text",
+      name: "iso",
+      message: "Enter country iso",
     };
 
     const currencyQuestion: PromptObject = {
-      type: 'text',
-      name: 'currency',
-      message: 'Enter country currency',
+      type: "text",
+      name: "currency",
+      message: "Enter country currency",
     };
 
     const statusQuestion: PromptObject = {
-      type: 'confirm',
-      name: 'status',
-      message: 'Enter country status',
+      type: "confirm",
+      name: "status",
+      message: "Enter country status",
       initial: true,
     };
 
@@ -45,7 +46,7 @@ export class CreateCommand extends BaseCommand {
     const response: Answers<string> = await prompts(this.createQuestions());
     const country = response as CountryDto;
 
-    this.log.info('Creating country...', country);
+    this.log.info("Creating country...", country);
 
     try {
       const result = await this.useCase.execute(country);
@@ -53,12 +54,12 @@ export class CreateCommand extends BaseCommand {
       if (result.isFailure()) {
         const { error } = result;
 
-        this.log.error('Country', error.message);
+        this.log.error("Country", error.message);
       } else {
-        this.log.info('Country created!!!');
+        this.log.info("Country created!!!");
       }
     } catch (err) {
-      this.log.error('Country', err);
+      this.log.error("Country", err);
     }
   }
 

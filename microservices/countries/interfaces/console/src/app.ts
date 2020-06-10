@@ -1,17 +1,18 @@
-import { MicroApplication } from '@micro/kernel';
-import { program } from 'commander';
+import { MicroApplication } from "@micro/kernel";
+import { program } from "commander";
+
 import {
-  listCommand,
-  findCommand,
   createCommand,
-  updateCommand,
   deleteCommand,
-} from './commands';
+  findCommand,
+  listCommand,
+  updateCommand,
+} from "./commands";
 
 export class CountryConsoleApplication extends MicroApplication {
   start(): void {
     program
-      .description('Country Console Interface')
+      .description("Country Console Interface")
       .addCommand(listCommand)
       .addCommand(findCommand)
       .addCommand(createCommand)

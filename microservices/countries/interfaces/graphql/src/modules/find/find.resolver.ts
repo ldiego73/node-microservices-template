@@ -1,10 +1,11 @@
-import { Args, Query, Resolver } from '@nestjs/graphql';
-import { CountrySchema } from '../../models/country.model';
-import { BaseResolver } from '@micro/server';
-import { IsoInvalidError } from '@micro/countries-core/lib/domain';
-import { CountryNotFoundError } from '@micro/countries-core/lib/application/use-cases';
-import { UseCaseUnexpectedError } from '@micro/kernel/lib/application';
-import { FindService } from './find.service';
+import { CountryNotFoundError } from "@micro/countries-core/lib/application/use-cases";
+import { IsoInvalidError } from "@micro/countries-core/lib/domain";
+import { UseCaseUnexpectedError } from "@micro/kernel/lib/application";
+import { BaseResolver } from "@micro/server";
+import { Args, Query, Resolver } from "@nestjs/graphql";
+
+import { CountrySchema } from "../../models/country.model";
+import { FindService } from "./find.service";
 @Resolver()
 export class FindResolver extends BaseResolver {
   constructor(private readonly service: FindService) {
@@ -13,7 +14,7 @@ export class FindResolver extends BaseResolver {
 
   // eslint-disable-next-line
   @Query((returns) => CountrySchema)
-  async country(@Args('iso') iso: string): Promise<void> {
+  async country(@Args("iso") iso: string): Promise<void> {
     try {
       return await this.service.execute(iso);
     } catch (err) {

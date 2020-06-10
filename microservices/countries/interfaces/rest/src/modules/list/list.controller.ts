@@ -1,7 +1,8 @@
-import { Controller, Get } from '@nestjs/common';
-import { BaseController } from '@micro/server';
-import { UseCaseUnexpectedError } from '@micro/kernel/lib/application';
-import { ListService } from './list.service';
+import { UseCaseUnexpectedError } from "@micro/kernel/lib/application";
+import { BaseController } from "@micro/server";
+import { Controller, Get } from "@nestjs/common";
+
+import { ListService } from "./list.service";
 
 @Controller()
 export class ListController extends BaseController {

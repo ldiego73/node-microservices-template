@@ -1,10 +1,10 @@
-import { Module } from '@nestjs/common';
+import { Module } from "@nestjs/common";
 
-import { ListModule } from './list/list.module';
-import { FindModule } from './find/find.module';
-import { CreateModule } from './create/create.module';
-import { DeleteModule } from './delete/delete.module';
-import { UpdateModule } from './update/update.module';
+import { CreateModule } from "./create/create.module";
+import { DeleteModule } from "./delete/delete.module";
+import { FindModule } from "./find/find.module";
+import { ListModule } from "./list/list.module";
+import { UpdateModule } from "./update/update.module";
 
 const modules = [
   ListModule,

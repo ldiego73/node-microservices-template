@@ -1,9 +1,9 @@
-import { Injectable } from '@nestjs/common';
 import {
   ListCountryUseCase,
   listCountryUseCase,
-} from '@micro/countries-core/lib/application/use-cases';
-import { BaseService } from '@micro/server';
+} from "@micro/countries-core/lib/application/use-cases";
+import { BaseService } from "@micro/server";
+import { Injectable } from "@nestjs/common";
 
 @Injectable()
 export class ListService extends BaseService {

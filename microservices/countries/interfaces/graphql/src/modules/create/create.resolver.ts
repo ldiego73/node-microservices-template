@@ -1,13 +1,14 @@
-import { Args, Mutation, Resolver } from '@nestjs/graphql';
-import { BaseResolver } from '@micro/server';
+import { CountryAlreadyExistsError } from "@micro/countries-core/lib/application/use-cases";
 import {
-  IsoInvalidError,
   CountryInvalidError,
-} from '@micro/countries-core/lib/domain';
-import { UseCaseUnexpectedError } from '@micro/kernel/lib/application';
-import { CountryAlreadyExistsError } from '@micro/countries-core/lib/application/use-cases';
-import { CreateService } from './create.service';
-import { CountrySchemaInput } from '../../models';
+  IsoInvalidError,
+} from "@micro/countries-core/lib/domain";
+import { UseCaseUnexpectedError } from "@micro/kernel/lib/application";
+import { BaseResolver } from "@micro/server";
+import { Args, Mutation, Resolver } from "@nestjs/graphql";
+
+import { CountrySchemaInput } from "../../models";
+import { CreateService } from "./create.service";
 
 @Resolver()
 export class CreateResolver extends BaseResolver {
@@ -17,7 +18,7 @@ export class CreateResolver extends BaseResolver {
 
   // eslint-disable-next-line
   @Mutation((returns) => Boolean)
-  async create(@Args('input') input: CountrySchemaInput): Promise<void> {
+  async create(@Args("input") input: CountrySchemaInput): Promise<void> {
     try {
       return await this.service.execute(input);
     } catch (err) {

@@ -1,3 +1,3 @@
-import { CountryGraphqlApplication } from './app';
+import { CountryGraphqlApplication } from "./app";
 
 new CountryGraphqlApplication().start();

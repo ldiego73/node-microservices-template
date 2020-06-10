@@ -1,8 +1,9 @@
-import { Query, Resolver } from '@nestjs/graphql';
-import { CountrySchema } from '../../models/country.model';
-import { BaseResolver } from '@micro/server';
-import { UseCaseUnexpectedError } from '@micro/kernel/lib/application';
-import { ListService } from './list.service';
+import { UseCaseUnexpectedError } from "@micro/kernel/lib/application";
+import { BaseResolver } from "@micro/server";
+import { Query, Resolver } from "@nestjs/graphql";
+
+import { CountrySchema } from "../../models/country.model";
+import { ListService } from "./list.service";
 
 @Resolver()
 export class ListResolver extends BaseResolver {

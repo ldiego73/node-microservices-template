@@ -1,6 +1,6 @@
-import { Field, ObjectType } from '@nestjs/graphql';
+import { Field, ObjectType } from "@nestjs/graphql";
 
-@ObjectType('Country')
+@ObjectType("Country")
 export class CountrySchema {
   @Field()
   name!: string;
