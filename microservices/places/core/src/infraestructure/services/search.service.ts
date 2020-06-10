@@ -1,4 +1,4 @@
-import { GoogleAddress,GoogleDetailsResult } from "../dtos";
+import { GoogleAddress, GoogleDetailsResult } from "../dtos";
 import { GoogleApi } from "../http";
 
 export class SearchService {

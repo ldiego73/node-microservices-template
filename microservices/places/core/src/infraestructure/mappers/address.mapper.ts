@@ -1,18 +1,15 @@
 import { UniqueEntityId } from "@micro/kernel/lib/domain";
-import { Mapper } from "@micro/kernel/lib/infraestructure/mapper";
+import { DataMapper } from "@micro/kernel/lib/infraestructure/mapper";
 
+import { AddressFactory, CountryFactory, LatLngFactory } from "../../domain";
 import { Address } from "../../domain/address";
-import { Country } from "../../domain/country";
-import { LatLng } from "../../domain/lat-lng";
 import { GoogleAddress } from "../dtos";
 
-export class AddressMapper implements Mapper<Address> {
+export class AddressMapper implements DataMapper<Address> {
   toDomain(raw: GoogleAddress): Address {
-    const latLngOrError = LatLng.create(raw.latLng.lat, raw.latLng.lng);
-    const countryOrError = Country.create(raw.country);
-    const latLng = latLngOrError.value;
-    const country = countryOrError.value;
-    const addressOrError = Address.create(
+    const latLng = LatLngFactory.createFrom(raw.latLng.lat, raw.latLng.lng);
+    const country = CountryFactory.createFrom(raw.country);
+    const address = AddressFactory.createFrom(
       {
         country,
         address: raw.description,
@@ -21,7 +18,7 @@ export class AddressMapper implements Mapper<Address> {
       new UniqueEntityId(raw.id)
     );
 
-    return addressOrError.value;
+    return address;
   }
 
   toPersistence(address: Address): GoogleAddress {
