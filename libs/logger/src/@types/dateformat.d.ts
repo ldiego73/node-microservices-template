@@ -1,4 +1,4 @@
-declare module 'dateformat' {
+declare module "dateformat" {
   interface _dateformat {
     /**
      * Returns a string representing date using format mask.

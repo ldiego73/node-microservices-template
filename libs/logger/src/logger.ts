@@ -1,5 +1,6 @@
-import chalk, { Chalk } from 'chalk';
-import { BaseLogger, LogLevel } from './base.logger';
+import chalk, { Chalk } from "chalk";
+
+import { BaseLogger, LogLevel } from "./base.logger";
 
 export class Logger extends BaseLogger {
   protected build(

@@ -1,4 +1,4 @@
-import { BaseLogger, LogLevel } from './base.logger';
+import { BaseLogger, LogLevel } from "./base.logger";
 
 export class Logger extends BaseLogger {
   protected build(
@@ -11,24 +11,24 @@ export class Logger extends BaseLogger {
 
     switch (level) {
       case LogLevel.Debug:
-        background = '#A8CC8C';
+        background = "#A8CC8C";
         break;
       case LogLevel.Info:
-        background = '#71BEF2';
+        background = "#71BEF2";
         break;
       case LogLevel.Warning:
-        background = '#DBAB79';
+        background = "#DBAB79";
         break;
       case LogLevel.Error:
-        background = '#E88388';
+        background = "#E88388";
         break;
       default:
-        background = '#B9BFCA';
+        background = "#B9BFCA";
         break;
     }
 
     const result: unknown[] = [];
-    const printTime = Logger.showTimestamp ? `${this.timestamp()} ` : '';
+    const printTime = Logger.showTimestamp ? `${this.timestamp()} ` : "";
 
     result.push(`${printTime}%c${title}`);
     result.push(

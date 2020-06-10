@@ -1,4 +1,4 @@
-import dateFormat from 'dateformat';
+import dateFormat from "dateformat";
 
 export enum LogLevel {
   Off = 0,
