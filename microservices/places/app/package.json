@@ -1,0 +1,41 @@
+{
+  "name": "@micro/places",
+  "version": "1.0.0",
+  "description": "Places Application",
+  "author": {
+    "name": "Luis Diego",
+    "email": "lfdiego7@gmail.com",
+    "url": "http://github.com/ldiego73"
+  },
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "clean": "rimraf lib",
+    "format": "prettier --write \"src/**/*.ts\" --loglevel silent",
+    "lint": "eslint \"{src,test}/**/*.ts\" -f stylish",
+    "develop": "ts-node src/index.ts",
+    "prebuild": "yarn clean && yarn format",
+    "build": "tsc",
+    "start": "node dist"
+  },
+  "dependencies": {
+    "@micro/places-console": "^1.0.0",
+    "@micro/places-graphql": "^1.0.0",
+    "@micro/places-rest": "^1.0.0",
+    "@micro/kernel": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.13",
+    "@typescript-eslint/eslint-plugin": "^3.2.0",
+    "@typescript-eslint/parser": "^3.2.0",
+    "eslint": "^7.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-simple-import-sort": "^5.0.3",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
+  }
+}
