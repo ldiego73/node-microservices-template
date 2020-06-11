@@ -19,9 +19,9 @@ export class DeleteResolver extends BaseResolver {
     } catch (err) {
       switch (err.constructor) {
         case IsoInvalidError:
-          this.bad(err.message, err.code);
+          return this.bad(err.message, err.code);
         case UseCaseUnexpectedError:
-          this.fail(err.message, err.code);
+          return this.fail(err.message, err.code);
         default:
           throw err;
       }

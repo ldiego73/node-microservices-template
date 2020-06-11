@@ -3,15 +3,15 @@
 # ------------------------------------------------------
 
 type Country {
-  name: String!
-  iso: String!
-  currency: String!
-  status: Boolean!
+  name: String
+  iso: String
+  currency: String
+  status: Boolean
 }
 
 type Query {
-  countries: [Country!]!
   country(iso: String!): Country!
+  countries: [Country!]!
 }
 
 type Mutation {

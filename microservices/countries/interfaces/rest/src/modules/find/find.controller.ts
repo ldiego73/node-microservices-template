@@ -19,13 +19,11 @@ export class FindController extends BaseController {
     } catch (err) {
       switch (err.constructor) {
         case IsoInvalidError:
-          this.bad(err.message, err.code);
-          break;
+          return this.bad(err.message, err.code);
         case CountryNotFoundError:
-          this.notFound(err.message, err.code);
-          break;
+          return this.notFound(err.message, err.code);
         case UseCaseUnexpectedError:
-          this.fail(err.message, err.code);
+          return this.fail(err.message, err.code);
         default:
           throw err;
       }

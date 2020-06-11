@@ -15,12 +15,10 @@ export class ListController extends BaseController {
     try {
       return await this.service.execute();
     } catch (err) {
-      switch (err.constructor) {
-        case UseCaseUnexpectedError:
-          this.fail(err.message, err.code);
-          break;
-        default:
-          throw err;
+      if (err.constructor === UseCaseUnexpectedError) {
+        this.fail(err.message, err.code);
+      } else {
+        throw err;
       }
     }
   }

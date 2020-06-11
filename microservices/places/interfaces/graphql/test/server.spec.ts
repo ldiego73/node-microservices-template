@@ -6,7 +6,7 @@ import request from "supertest";
 
 import { AppModule } from "../src/modules/app.module";
 
-describe("Country GraphQL Server", () => {
+describe("Places GraphQL Server", () => {
   let server: any;
   let app: INestApplication;
 
@@ -24,19 +24,27 @@ describe("Country GraphQL Server", () => {
     app.getHttpAdapter().getInstance().ready();
   });
 
-  it("/ (GET)", async () => {
+  it("/search (GET)", async () => {
     const result = await request(server)
       .post("/graphql")
       .send({
         operationName: null,
-        variables: {},
+        variables: {
+          input: {
+            country: "PE",
+            address: "Los Olivos",
+          },
+        },
         query: `
-        query list {
-          countries {
-            iso
-            name
-            currency
-            status
+        query search($input: SearchInput!) {
+          search(input: $input) {
+            id
+            country
+            description
+            latLng {
+              lat
+              lng
+            }
           }
         }
         `,
@@ -44,27 +52,35 @@ describe("Country GraphQL Server", () => {
       .expect(200);
 
     const { data } = result.body;
-    const { countries } = data;
+    const { search } = data;
 
-    expect(Array.isArray(countries)).toBeTruthy();
-    expect(Object.keys(countries[0])).toEqual(
-      expect.arrayContaining(["name", "iso", "currency", "status"])
+    expect(Array.isArray(search)).toBeTruthy();
+    expect(Object.keys(search[0])).toEqual(
+      expect.arrayContaining(["country", "description", "latLng"])
     );
   });
 
-  it("/:iso (GET)", async () => {
+  it("/geocode (GET)", async () => {
     const result = await request(server)
       .post("/graphql")
       .send({
         operationName: null,
         variables: {
-          iso: "PE",
+          input: {
+            lat: "-11.9448686",
+            lng: "-77.05029780000001",
+          },
         },
         query: `
-        query find($iso: String!) {
-          country(iso: $iso) {
-            iso
-            name
+        query geocode($input: LocationInput!) {
+          geocode(input: $input) {
+            id
+            country
+            description
+            latLng {
+              lat
+              lng
+            }
           }
         }
         `,
@@ -72,26 +88,35 @@ describe("Country GraphQL Server", () => {
       .expect(200);
 
     const { data } = result.body;
-    const { country } = data;
+    const { geocode } = data;
 
-    expect(Object.keys(country)).toEqual(
-      expect.arrayContaining(["name", "iso"])
+    expect(Array.isArray(geocode)).toBeTruthy();
+    expect(Object.keys(geocode[0])).toEqual(
+      expect.arrayContaining(["country", "description", "latLng"])
     );
   });
 
-  it("/:iso (GET) Iso Invalid", async () => {
+  it("/search (GET) Iso Invalid", async () => {
     const result = await request(server)
       .post("/graphql")
       .send({
         operationName: null,
         variables: {
-          iso: "xxx",
+          input: {
+            country: "xx",
+            address: "Los Olivos",
+          },
         },
         query: `
-        query find($iso: String!) {
-          country(iso: $iso) {
-            iso
-            name
+        query search($input: SearchInput!) {
+          search(input: $input) {
+            id
+            country
+            description
+            latLng {
+              lat
+              lng
+            }
           }
         }
         `,
@@ -111,41 +136,6 @@ describe("Country GraphQL Server", () => {
     const { extensions } = error;
 
     expect(extensions.status).toBe(400);
-    expect(extensions.code).toBe("ISO_INVALID");
-  });
-
-  it("/:iso (GET) Not Found", async () => {
-    const result = await request(server)
-      .post("/graphql")
-      .send({
-        operationName: null,
-        variables: {
-          iso: "XY",
-        },
-        query: `
-        query find($iso: String!) {
-          country(iso: $iso) {
-            iso
-            name
-          }
-        }
-        `,
-      })
-      .expect(200);
-
-    const { errors } = result.body;
-
-    expect(Array.isArray(errors)).toBeTruthy();
-
-    const [error] = errors;
-
-    expect(Object.keys(error)).toEqual(
-      expect.arrayContaining(["message", "extensions"])
-    );
-
-    const { extensions } = error;
-
-    expect(extensions.status).toBe(404);
-    expect(extensions.code).toBe("COUNTRY_NOT_FOUND");
+    expect(extensions.code).toBe("COUNTRY_INVALID");
   });
 });
