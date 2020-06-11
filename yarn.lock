@@ -2766,7 +2766,7 @@ apollo-server-caching@^0.5.1:
   dependencies:
     lru-cache "^5.0.0"
 
-apollo-server-core@^2.13.1, apollo-server-core@^2.14.2:
+apollo-server-core@^2.13.1, apollo-server-core@^2.14.3:
   version "2.14.3"
   resolved "https://registry.yarnpkg.com/apollo-server-core/-/apollo-server-core-2.14.3.tgz#64028d2faec17fc94d9d9c275f4da790b6ce57ce"
   integrity sha512-A9RkWuHFZ04uEnXof5V02T7wfhUel7Hx9LpEN4N59mXTpb7ewW+cb0u+J+SP+Y4vDhVqaHCGoveRVKy6X2kLhw==
@@ -2816,12 +2816,12 @@ apollo-server-errors@^2.4.1:
   integrity sha512-7oEd6pUxqyWYUbQ9TA8tM0NU/3aGtXSEibo6+txUkuHe7QaxfZ2wHRp+pfT1LC1K3RXYjKj61/C2xEO19s3Kdg==
 
 apollo-server-fastify@^2.13.1:
-  version "2.14.2"
-  resolved "https://registry.yarnpkg.com/apollo-server-fastify/-/apollo-server-fastify-2.14.2.tgz#5ba2571666736b5eed95df20041a0cfcd46bfa2f"
-  integrity sha512-r1pqrLz5UGJExUCTy5qH2io4JGnebCUR3J7g0qPWUIaOZvkzku1RZTuxTWupQeBUj8qm1A3gK2Pd8s15/BYWMQ==
+  version "2.14.3"
+  resolved "https://registry.yarnpkg.com/apollo-server-fastify/-/apollo-server-fastify-2.14.3.tgz#633992f81dd70c288c8f53c4d77eb0c29bdf756e"
+  integrity sha512-qihLp9VUDxM/NZOpmdyCKp4/oq43tKf3aX94us4inbHIBu2lPCpREe4toJZL+9M45TQ2oTKF18gtlx3QEEtw7g==
   dependencies:
     "@apollographql/graphql-playground-html" "1.6.24"
-    apollo-server-core "^2.14.2"
+    apollo-server-core "^2.14.3"
     apollo-server-types "^0.5.0"
     fastify-accepts "^1.0.0"
     fastify-cors "^0.2.0"
