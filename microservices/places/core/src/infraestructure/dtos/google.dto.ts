@@ -29,9 +29,8 @@ export interface GoogleDetailsResult {
 }
 
 export interface GoogleGeoCodeResult {
-  result: GoogleResult[];
+  results: GoogleResult[];
 }
-
 
 export interface GoogleAddress {
   id: string;

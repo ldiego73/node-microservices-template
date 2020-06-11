@@ -1,0 +1,30 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Location {
+  lat: String
+  lng: String
+}
+
+type Address {
+  id: String
+  country: String
+  description: String
+  latLng: Location
+}
+
+type Query {
+  geocode(input: LocationInput!): [Address!]!
+  search(input: SearchInput!): [Address!]!
+}
+
+input LocationInput {
+  lat: String!
+  lng: String!
+}
+
+input SearchInput {
+  country: String!
+  address: String!
+}

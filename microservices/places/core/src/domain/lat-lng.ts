@@ -1,9 +1,6 @@
-import { Result, Either } from '@micro/kernel/lib/result';
-import { ValueObject } from '@micro/kernel/lib/domain/value-object';
-import * as validator from '@micro/utils';
-import { LatitudeInvalidError, LongitudeInvalidError } from './errors';
+import { ValueObject } from "@micro/kernel/lib/domain/value-object";
 
-interface LatLngProps {
+export interface LatLngProps {
   lat: string;
   lng: string;
 }
@@ -20,34 +17,7 @@ export class LatLng extends ValueObject<LatLngProps> {
     return this.props.lng;
   }
 
-  private constructor(props: LatLngProps) {
+  constructor(props: LatLngProps) {
     super(props);
-  }
-
-  public static create(
-    lat: string,
-    lng: string
-  ): Either<LatitudeInvalidError | LongitudeInvalidError, LatLng> {
-    const validateLat = validator.pattern(this.LAT_PATTERN)(lat);
-    const validateLng = validator.pattern(this.LNG_PATTERN)(lng);
-
-    const errors: Either<
-      LatitudeInvalidError | LongitudeInvalidError,
-      LatLng
-    >[] = [];
-
-    if (!validateLat.success) {
-      errors.push(Result.fail(LatitudeInvalidError.create(lat)));
-    }
-
-    if (!validateLng.success) {
-      errors.push(Result.fail(LongitudeInvalidError.create(lng)));
-    }
-
-    if (errors.length > 0) {
-      return Result.combine(errors);
-    }
-
-    return Result.ok(new LatLng({ lat, lng }));
   }
 }

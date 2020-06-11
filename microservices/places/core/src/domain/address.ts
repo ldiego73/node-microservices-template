@@ -1,12 +1,9 @@
-import { Entity, UniqueEntityId } from '@micro/kernel/lib/domain';
-import { Result, Either } from '@micro/kernel/lib/result';
-import { Schema } from '@micro/utils';
-import * as validator from '@micro/utils';
-import { LatLng } from './lat-lng';
-import { AddressInvalidError } from './errors';
-import { Country } from './country';
+import { Entity, UniqueEntityId } from "@micro/kernel/lib/domain";
 
-interface AddressProps {
+import { Country } from "./country";
+import { LatLng } from "./lat-lng";
+
+export interface AddressProps {
   country: Country;
   address: string;
   latLng: LatLng;
@@ -33,31 +30,7 @@ export class Address extends Entity<AddressProps> {
     return this.props.latLng.lng;
   }
 
-  private constructor(props: AddressProps, id?: UniqueEntityId) {
+  constructor(props: AddressProps, id?: UniqueEntityId) {
     super(props, id);
-  }
-
-  public static create(
-    props: AddressProps,
-    id?: UniqueEntityId
-  ): Either<AddressInvalidError, Address> {
-    const schema: Schema<AddressProps> = {
-      country: validator.object({
-        value: validator.string(),
-      }),
-      address: validator.string(),
-      latLng: validator.object({
-        lat: validator.string(),
-        lng: validator.string(),
-      }),
-    };
-
-    const validate = validator.validate(schema, props);
-
-    if (validate.success) {
-      return Result.ok(new Address(props, id));
-    }
-
-    return Result.fail(AddressInvalidError.create(validate.message as string));
   }
 }

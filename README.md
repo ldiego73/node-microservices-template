@@ -23,22 +23,28 @@ This project is structured by libraries and modules
 │   ├── kernel                            # Shared Kernel (@micro/kernel)
 │   ├── logger                            # Centralized library for logs both node js and browsers (@micro/logger)  
 │   ├── server                            # Centralized library for create custom server using NestJS (@micro/server)  
+│   ├── server-graphql                    # Centralized library for create custom server with graphql using NestJS (@micro/server-graphql)  
 │   └── utils                             # Library for validations, extensions, etc. (@micro/utils)  
 ├── microservices
-│   ├── countries
+│   ├── bounded context
 │   │   ├── app
 │   │   ├── config
 │   │   ├── core
 │   │   │   ├── application
 │   │   │   │   ├── dtos
-│   │   │   │   ├── transforms
+│   │   │   │   ├── mappers
 │   │   │   │   └── use-cases
 │   │   │   ├── domain
-│   │   │   │   └── errors
+│   │   │   │   ├── errors
+│   │   │   │   ├── factory
+│   │   │   │   ├── repository
+│   │   │   │   └── services *
 │   │   │   ├── infraestructure
-│   │   │   │   ├── database
+│   │   │   │   ├── database *
+│   │   │   │   ├── http *
+│   │   │   │   ├── services *
 │   │   │   │   ├── mappers
-│   │   │   │   └── repositories
+│   │   │   │   └── repository
 │   │   ├── interfaces
 │   │   │   ├── console
 │   │   │   │   ├── commands

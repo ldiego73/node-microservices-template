@@ -1,5 +1,5 @@
-import { resolve } from 'path';
-import { config } from 'dotenv';
+import { config } from "dotenv";
+import { resolve } from "path";
 
 export interface GeocodeHttps {
   key: string;
@@ -17,13 +17,13 @@ export interface GeocodeEnv {
   production: boolean;
 }
 
-export const readEnv = (name = '.env'): GeocodeEnv => {
+export const readEnv = (name = ".env"): GeocodeEnv => {
   const path = resolve(process.cwd(), name);
 
   config({ path });
 
   if (!process.env.SERVER_PORT) {
-    throw new Error('Unable to retrieve environment variable from server port');
+    throw new Error("Unable to retrieve environment variable from server port");
   }
 
   const env: GeocodeEnv = {
@@ -31,7 +31,7 @@ export const readEnv = (name = '.env'): GeocodeEnv => {
     server: {
       port: Number(process.env.SERVER_PORT),
     },
-    production: process.env.NODE_ENV === 'production',
+    production: process.env.NODE_ENV === "production",
   };
 
   if (process.env.SERVER_HTTPS_CERT && process.env.SERVER_HTTPS_KEY) {

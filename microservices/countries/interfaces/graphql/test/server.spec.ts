@@ -1,4 +1,4 @@
-import { GraphQlExceptionFilter } from "@micro/server";
+import { GraphQlExceptionFilter } from "@micro/server-graphql";
 import { INestApplication } from "@nestjs/common";
 import { FastifyAdapter } from "@nestjs/platform-fastify";
 import { Test } from "@nestjs/testing";

@@ -1,9 +1,6 @@
-import { Result, Either } from '@micro/kernel/lib/result';
-import { ValueObject } from '@micro/kernel/lib/domain/value-object';
-import * as validator from '@micro/utils';
-import { CountryInvalidError } from './errors';
+import { ValueObject } from "@micro/kernel/lib/domain/value-object";
 
-interface CountryProps {
+export interface CountryProps {
   value: string;
 }
 
@@ -14,17 +11,7 @@ export class Country extends ValueObject<CountryProps> {
     return this.props.value;
   }
 
-  private constructor(props: CountryProps) {
+  constructor(props: CountryProps) {
     super(props);
-  }
-
-  public static create(country: string): Either<CountryInvalidError, Country> {
-    const validate = validator.pattern(this.COUNTRY_PATTERN)(country);
-
-    if (validate.success) {
-      return Result.ok(new Country({ value: country }));
-    }
-
-    return Result.fail(CountryInvalidError.create(country));
   }
 }

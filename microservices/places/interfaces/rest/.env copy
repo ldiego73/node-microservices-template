@@ -1,0 +1,7 @@
+DB_NAME="countries"
+DB_TYPE="sqlite"
+DB_STORAGE="/home/ldiego/databases/db.sqlite"
+NODE_ENV="development"
+SERVER_PORT=3000
+SERVER_HTTPS_CERT="cert/local.cert"
+SERVER_HTTPS_KEY="cert/local.key"
