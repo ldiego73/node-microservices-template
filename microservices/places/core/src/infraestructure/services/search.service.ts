@@ -39,7 +39,7 @@ export class SearchService {
 
     const data: GoogleAddress[] = [];
 
-    addresses.result.forEach((a) => {
+    addresses.results.forEach((a) => {
       data.push({
         id: a.place_id,
         country: "",
